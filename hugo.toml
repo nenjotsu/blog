@@ -36,7 +36,7 @@ title = 'nenjo trades blog'  # Title of your website
 # Menu items displayed in the header.
 [[menus.main]]
   name = 'Contact'
-  url = 'mailto:youremail@email.com'
+  url = 'mailto:nenjotrade@gmail.com'
   weight = 1
 [[menus.main]]
   name = 'Tags'
