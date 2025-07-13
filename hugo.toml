@@ -19,16 +19,16 @@ title = 'nenjo trades blog'  # Title of your website
   # To enable giscus, the GitHub-discussions-based comment section,
   # input the repository for the discussions below. For more details, see
   # https://giscus.app
-  [params.giscus]
-    repo = '[ENTER REPO HERE]'
-    repoId = '[ENTER REPO ID HERE]'
-    category = '[ENTER CATEGORY NAME HERE]'
-    categoryId = '[ENTER CATEGORY ID HERE]'
-    mapping = 'pathname'
-    reactionsEnabled = '1'
-    inputPosition = 'bottom'
-    theme = 'light'
-    lang = 'en'
+  # [params.giscus]
+    # repo = '[ENTER REPO HERE]'
+    # repoId = '[ENTER REPO ID HERE]'
+    # category = '[ENTER CATEGORY NAME HERE]'
+    # categoryId = '[ENTER CATEGORY ID HERE]'
+    # mapping = 'pathname'
+    # reactionsEnabled = '1'
+    # inputPosition = 'bottom'
+    # theme = 'light'
+    # lang = 'en'
 
 [pagination]
   pagerSize = 5  # Specify the max number of rows to be returned in list
