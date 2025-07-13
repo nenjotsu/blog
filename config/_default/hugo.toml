@@ -3,7 +3,7 @@
 # https://nunocoracao.github.io/blowfish/docs/getting-started/
 
 [[module.imports]]
-  path = 'github.com/nunocoracao/blowfish'
+  path = 'blowfish'
 
 # theme = "blowfish"
 baseURL = "https://nenjotsu.github.io/"
