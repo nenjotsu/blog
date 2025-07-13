@@ -1,0 +1,459 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+
+
+
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<meta
+  name="googlebot"
+  content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+/>
+
+<meta name="description" content="Minimic Discaptive
+This project is a simple static site generator designed to convert Markdown-based posts into static HTML pages. It reads content from a directory, processes the data, and generates a fully static website with an index page, individual post pages, and a sitemap.
+Overview
+Live: discaptive.com
+
+
+Features
+
+Markdown to HTML Conversion: The site generator reads .md files from the content directory and converts them into static HTML pages.
+Template Rendering: Uses HTML templates for consistent layout across pages. Templates include a header, footer, and layout among others.
+Post Previews: On the index page, posts are displayed with a title, date, and a preview of the content.
+Post Detail Pages: Each post has a dedicated page with full content.
+Sitemap Generation: Generates a sitemap for search engine indexing.
+Customizable Configuration: Site information like name, GitHub URL, and Giscus integration can be customized via a config.yaml file.
+
+Project Structure
+├── content/                # Directory for blog posts (Markdown files)
+│   ├── [post-slug]/image.png
+│   └── [post-slug]/index.md
+├── public/                 # Generated static site files (HTML, assets)
+├── templates/              # HTML templates for rendering pages
+│   ├── layout.html
+│   ├── header.html
+│   ├── footer.html
+│   ├── ...
+│   └── ...
+├── config.yaml             # Configuration file for site settings
+├── build.js                # Main script for generating the site
+└── package.json            # Node.js dependencies and scripts
+" />
+
+
+<meta property="og:title" content="About minimic-discaptive" />
+<meta property="og:description" content="Minimic Discaptive
+This project is a simple static site generator designed to convert Markdown-based posts into static HTML pages. It reads content from a directory, processes the data, and generates a fully static website with an index page, individual post pages, and a sitemap.
+Overview
+Live: discaptive.com
+
+
+Features
+
+Markdown to HTML Conversion: The site generator reads .md files from the content directory and converts them into static HTML pages.
+Template Rendering: Uses HTML templates for consistent layout across pages. Templates include a header, footer, and layout among others.
+Post Previews: On the index page, posts are displayed with a title, date, and a preview of the content.
+Post Detail Pages: Each post has a dedicated page with full content.
+Sitemap Generation: Generates a sitemap for search engine indexing.
+Customizable Configuration: Site information like name, GitHub URL, and Giscus integration can be customized via a config.yaml file.
+
+Project Structure
+├── content/                # Directory for blog posts (Markdown files)
+│   ├── [post-slug]/image.png
+│   └── [post-slug]/index.md
+├── public/                 # Generated static site files (HTML, assets)
+├── templates/              # HTML templates for rendering pages
+│   ├── layout.html
+│   ├── header.html
+│   ├── footer.html
+│   ├── ...
+│   └── ...
+├── config.yaml             # Configuration file for site settings
+├── build.js                # Main script for generating the site
+└── package.json            # Node.js dependencies and scripts
+" />
+<meta property="og:url" content="//localhost:1313/about-minimic-discaptive/" />
+<meta property="og:site_name" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="//localhost:1313/images/og-image.png" />
+
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="About minimic-discaptive" />
+<meta name="twitter:description" content="Minimic Discaptive
+This project is a simple static site generator designed to convert Markdown-based posts into static HTML pages. It reads content from a directory, processes the data, and generates a fully static website with an index page, individual post pages, and a sitemap.
+Overview
+Live: discaptive.com
+
+
+Features
+
+Markdown to HTML Conversion: The site generator reads .md files from the content directory and converts them into static HTML pages.
+Template Rendering: Uses HTML templates for consistent layout across pages. Templates include a header, footer, and layout among others.
+Post Previews: On the index page, posts are displayed with a title, date, and a preview of the content.
+Post Detail Pages: Each post has a dedicated page with full content.
+Sitemap Generation: Generates a sitemap for search engine indexing.
+Customizable Configuration: Site information like name, GitHub URL, and Giscus integration can be customized via a config.yaml file.
+
+Project Structure
+├── content/                # Directory for blog posts (Markdown files)
+│   ├── [post-slug]/image.png
+│   └── [post-slug]/index.md
+├── public/                 # Generated static site files (HTML, assets)
+├── templates/              # HTML templates for rendering pages
+│   ├── layout.html
+│   ├── header.html
+│   ├── footer.html
+│   ├── ...
+│   └── ...
+├── config.yaml             # Configuration file for site settings
+├── build.js                # Main script for generating the site
+└── package.json            # Node.js dependencies and scripts
+" />
+<meta name="twitter:image" content="//localhost:1313/images/og-image.png" />
+
+<title>About minimic-discaptive</title>
+
+    <link rel="stylesheet" href="/css/output.css" />
+
+
+  </head>
+  <body class="bg-white text-black antialiased">
+    <section class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+      <div class="flex h-screen flex-col justify-between font-sans">
+        <header
+          class="flex items-center w-full bg-white justify-between py-10 sticky top-0 z-50"
+        >
+          <a class="group break-words" aria-label="" href="/">
+  <div class="flex items-center justify-between">
+    <div class="sm:mr-3">
+      <img src="/images/logo.svg" width="32" height="32" alt="Logo Image" />
+    </div>
+
+    <div class="hidden text-2xl font-semibold sm:block group-hover:underline">
+      <span></span>
+    </div>
+  </div>
+</a>
+
+<div class="flex items-center space-x-4 leading-5 sm:space-x-6">
+  <div class="items-center space-x-4 overflow-x-auto flex sm:space-x-6">
+    
+      <a
+        href="mailto:youremail@email.com"
+        class="font-medium text-gray-900 hover:text-indigo-500"
+        
+        >Contact</a
+      >
+    
+      <a
+        href="/tags"
+        class="font-medium text-gray-900 hover:text-indigo-500"
+        
+        >Tags</a
+      >
+    
+      <a
+        href="/about"
+        class="font-medium text-gray-900 hover:text-indigo-500"
+        
+        >About</a
+      >
+    
+    <a href="https://github.com/nenjotsu" target="_blank">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="fill-[#24292F] hover:fill-indigo-500 h-6 w-6"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M12.0099 0C5.36875 0 0 5.5 0 12.3042C0 17.7432 3.43994 22.3472 8.21205 23.9767C8.80869 24.0992 9.02724 23.712 9.02724 23.3862C9.02724 23.101 9.00757 22.1232 9.00757 21.1045C5.6667 21.838 4.97099 19.6378 4.97099 19.6378C4.43409 18.2118 3.63858 17.8452 3.63858 17.8452C2.54511 17.0915 3.71823 17.0915 3.71823 17.0915C4.93117 17.173 5.56763 18.3545 5.56763 18.3545C6.64118 20.2285 8.37111 19.699 9.06706 19.373C9.16638 18.5785 9.48473 18.0285 9.82275 17.723C7.15817 17.4377 4.35469 16.3785 4.35469 11.6523C4.35469 10.3078 4.8316 9.20775 5.58729 8.35225C5.46807 8.04675 5.0504 6.7835 5.70677 5.09275C5.70677 5.09275 6.72083 4.76675 9.00732 6.35575C9.98625 6.08642 10.9958 5.9494 12.0099 5.94825C13.024 5.94825 14.0577 6.091 15.0123 6.35575C17.299 4.76675 18.3131 5.09275 18.3131 5.09275C18.9695 6.7835 18.5515 8.04675 18.4323 8.35225C19.2079 9.20775 19.6652 10.3078 19.6652 11.6523C19.6652 16.3785 16.8617 17.4172 14.1772 17.723C14.6148 18.11 14.9924 18.8433 14.9924 20.0045C14.9924 21.6545 14.9727 22.9788 14.9727 23.386C14.9727 23.712 15.1915 24.0992 15.7879 23.977C20.56 22.347 23.9999 17.7432 23.9999 12.3042C24.0196 5.5 18.6312 0 12.0099 0Z"
+        />
+      </svg>
+    </a>
+  </div>
+</div>
+
+        </header>
+        <main class="mb-auto">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "About minimic-discaptive",
+      "datePublished": "2025-03-20T00:00:00\u002b00:00",
+      "dateModified": "2025-03-20T00:00:00\u002b00:00",
+      "description": "\u003ch1 id=\u0022minimic-discaptive\u0022\u003eMinimic Discaptive\u003c\/h1\u003e\n\u003cp\u003eThis project is a simple static site generator designed to convert Markdown-based posts into static HTML pages. It reads content from a directory, processes the data, and generates a fully static website with an index page, individual post pages, and a sitemap.\u003c\/p\u003e\n\u003ch2 id=\u0022overview\u0022\u003eOverview\u003c\/h2\u003e\n\u003cp\u003eLive: \u003ca href=\u0022https:\/\/discaptive.com\u0022\u003ediscaptive.com\u003c\/a\u003e\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u00221.png\u0022 alt=\u00221\u0022\u003e\n\u003cimg src=\u00222.png\u0022 alt=\u00222\u0022\u003e\u003c\/p\u003e\n\u003ch2 id=\u0022features\u0022\u003eFeatures\u003c\/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eMarkdown to HTML Conversion\u003c\/strong\u003e: The site generator reads \u003ccode\u003e.md\u003c\/code\u003e files from the \u003ccode\u003econtent\u003c\/code\u003e directory and converts them into static HTML pages.\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eTemplate Rendering\u003c\/strong\u003e: Uses HTML templates for consistent layout across pages. Templates include a \u003ccode\u003eheader\u003c\/code\u003e, \u003ccode\u003efooter\u003c\/code\u003e, and \u003ccode\u003elayout\u003c\/code\u003e among others.\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003ePost Previews\u003c\/strong\u003e: On the index page, posts are displayed with a title, date, and a preview of the content.\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003ePost Detail Pages\u003c\/strong\u003e: Each post has a dedicated page with full content.\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eSitemap Generation\u003c\/strong\u003e: Generates a sitemap for search engine indexing.\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eCustomizable Configuration\u003c\/strong\u003e: Site information like name, GitHub URL, and Giscus integration can be customized via a \u003ccode\u003econfig.yaml\u003c\/code\u003e file.\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch2 id=\u0022project-structure\u0022\u003eProject Structure\u003c\/h2\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 style=\u0022color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\u0022\u003e\u003ccode class=\u0022language-bash\u0022 data-lang=\u0022bash\u0022\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e├── content\/                \u003cspan style=\u0022color:#75715e\u0022\u003e# Directory for blog posts (Markdown files)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e│   ├── \u003cspan style=\u0022color:#f92672\u0022\u003e[\u003c\/span\u003epost-slug\u003cspan style=\u0022color:#f92672\u0022\u003e]\u003c\/span\u003e\/image.png\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e│   └── \u003cspan style=\u0022color:#f92672\u0022\u003e[\u003c\/span\u003epost-slug\u003cspan style=\u0022color:#f92672\u0022\u003e]\u003c\/span\u003e\/index.md\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e├── public\/                 \u003cspan style=\u0022color:#75715e\u0022\u003e# Generated static site files (HTML, assets)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e├── templates\/              \u003cspan style=\u0022color:#75715e\u0022\u003e# HTML templates for rendering pages\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e│   ├── layout.html\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e│   ├── header.html\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e│   ├── footer.html\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e│   ├── ...\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e│   └── ...\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e├── config.yaml             \u003cspan style=\u0022color:#75715e\u0022\u003e# Configuration file for site settings\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e├── build.js                \u003cspan style=\u0022color:#75715e\u0022\u003e# Main script for generating the site\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e└── package.json            \u003cspan style=\u0022color:#75715e\u0022\u003e# Node.js dependencies and scripts\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pr",
+      "image": "/images/og-image.png",
+      "url": "\/\/localhost:1313\/about-minimic-discaptive\/",
+      "author": [{ "@type": "Person", "name": "nenjotsu" }]
+    }
+  </script>
+  <section class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+    <article>
+      <div class="xl:divide-y xl:divide-gray-200">
+        <header class="pt-6 xl:pb-6">
+          <div class="space-y-1 text-center">
+            <dl class="space-y-10">
+              <div>
+                <dt class="sr-only">Published on</dt>
+                <dd class="text-base font-medium leading-6 text-gray-500">
+                  
+                  
+                  <time datetime="2025-03-20T00:00:00&#43;00:00">Thursday, March 20, 2025</time>
+                </dd>
+              </div>
+            </dl>
+            <div>
+              <h1
+                class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
+              >
+                <div>About minimic-discaptive</div>
+              </h1>
+            </div>
+          </div>
+        </header>
+
+        <div
+          class="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
+        >
+          <dl class="pb-10 pt-6 xl:border-b xl:border-gray-200 xl:pt-11">
+            <dt class="sr-only">Authors</dt>
+            <dd>
+              <ul
+                class="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8"
+              >
+                <li class="flex items-center space-x-2">
+                  <img
+                    src="https://github.com/nenjotsu.png"
+                    class="rounded-full"
+                    width="38"
+                    height="38"
+                    alt="Profile Image"
+                    loading="lazy"
+                  />
+                  <dl class="whitespace-nowrap text-sm font-medium leading-5">
+                    <dt class="sr-only">Name</dt>
+                    <dd class="text-gray-900">nenjotsu</dd>
+                  </dl>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <div
+            class="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0"
+          >
+            <div class="prose max-w-none pb-8 pt-10">
+              <details open>
+                <summary class="ml-6 pb-2 pt-2 text-xl font-bold">
+                  <span>Table of Contents</span>
+                </summary>
+
+                <nav class="ml-6">
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#project-structure">Project Structure</a></li>
+                        <li><a href="#configuration">Configuration</a></li>
+                          <ul>
+                              <li>
+                                <a href="#example-of-configyaml">Example of &lt;code&gt;config.yaml&lt;/code&gt;</a>
+                              </li>
+                          </ul>
+                        <li><a href="#how-to-use">How to Use</a></li>
+                          <ul>
+                              <li>
+                                <a href="#1-install-dependencies">1. Install Dependencies</a>
+                              </li>
+                              <li>
+                                <a href="#2-prepare-your-content">2. Prepare Your Content</a>
+                              </li>
+                              <li>
+                                <a href="#3-customize-the-templates">3. Customize the Templates</a>
+                              </li>
+                              <li>
+                                <a href="#4-run-the-generator">4. Run the Generator</a>
+                              </li>
+                              <li>
+                                <a href="#5-others">5. Others</a>
+                              </li>
+                          </ul>
+                        <li><a href="#license">License</a></li>
+                    </ul>
+                </nav>
+              </details>
+
+              <h1 id="minimic-discaptive">Minimic Discaptive</h1>
+<p>This project is a simple static site generator designed to convert Markdown-based posts into static HTML pages. It reads content from a directory, processes the data, and generates a fully static website with an index page, individual post pages, and a sitemap.</p>
+<h2 id="overview">Overview</h2>
+<p>Live: <a href="https://discaptive.com">discaptive.com</a></p>
+<p><img src="1.png" alt="1">
+<img src="2.png" alt="2"></p>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Markdown to HTML Conversion</strong>: The site generator reads <code>.md</code> files from the <code>content</code> directory and converts them into static HTML pages.</li>
+<li><strong>Template Rendering</strong>: Uses HTML templates for consistent layout across pages. Templates include a <code>header</code>, <code>footer</code>, and <code>layout</code> among others.</li>
+<li><strong>Post Previews</strong>: On the index page, posts are displayed with a title, date, and a preview of the content.</li>
+<li><strong>Post Detail Pages</strong>: Each post has a dedicated page with full content.</li>
+<li><strong>Sitemap Generation</strong>: Generates a sitemap for search engine indexing.</li>
+<li><strong>Customizable Configuration</strong>: Site information like name, GitHub URL, and Giscus integration can be customized via a <code>config.yaml</code> file.</li>
+</ul>
+<h2 id="project-structure">Project Structure</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>├── content/                <span style="color:#75715e"># Directory for blog posts (Markdown files)</span>
+</span></span><span style="display:flex;"><span>│   ├── <span style="color:#f92672">[</span>post-slug<span style="color:#f92672">]</span>/image.png
+</span></span><span style="display:flex;"><span>│   └── <span style="color:#f92672">[</span>post-slug<span style="color:#f92672">]</span>/index.md
+</span></span><span style="display:flex;"><span>├── public/                 <span style="color:#75715e"># Generated static site files (HTML, assets)</span>
+</span></span><span style="display:flex;"><span>├── templates/              <span style="color:#75715e"># HTML templates for rendering pages</span>
+</span></span><span style="display:flex;"><span>│   ├── layout.html
+</span></span><span style="display:flex;"><span>│   ├── header.html
+</span></span><span style="display:flex;"><span>│   ├── footer.html
+</span></span><span style="display:flex;"><span>│   ├── ...
+</span></span><span style="display:flex;"><span>│   └── ...
+</span></span><span style="display:flex;"><span>├── config.yaml             <span style="color:#75715e"># Configuration file for site settings</span>
+</span></span><span style="display:flex;"><span>├── build.js                <span style="color:#75715e"># Main script for generating the site</span>
+</span></span><span style="display:flex;"><span>└── package.json            <span style="color:#75715e"># Node.js dependencies and scripts</span>
+</span></span></code></pre></div><h2 id="configuration">Configuration</h2>
+<p>The <code>config.yaml</code> file allows you to customize various aspects of the site, such as:</p>
+<p><code>base</code>: The base URL for your site.
+<code>name</code>: The name of your blog or site.
+<code>github</code>: The GitHub username.
+<code>giscus</code>: Configuration for embedding Giscus comments in posts (requires setting up Giscus).</p>
+<h3 id="example-of-configyaml">Example of <code>config.yaml</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">base</span>: <span style="color:#ae81ff">https://myblog.com</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">My Blog</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">github</span>: <span style="color:#ae81ff">github-username</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">giscus</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">repo</span>: <span style="color:#e6db74">&#34;username/repository&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">repoId</span>: <span style="color:#e6db74">&#34;repository-id&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">category</span>: <span style="color:#e6db74">&#34;General&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">categoryId</span>: <span style="color:#e6db74">&#34;category-id&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">mapping</span>: <span style="color:#e6db74">&#34;pathname&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">reactionsEnabled</span>: <span style="color:#e6db74">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">inputPosition</span>: <span style="color:#e6db74">&#34;bottom&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">theme</span>: <span style="color:#e6db74">&#34;light&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">lang</span>: <span style="color:#e6db74">&#34;en&#34;</span>
+</span></span></code></pre></div><h2 id="how-to-use">How to Use</h2>
+<h3 id="1-install-dependencies">1. Install Dependencies</h3>
+<p>Before running the static site generator, install the necessary dependencies:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install
+</span></span></code></pre></div><h3 id="2-prepare-your-content">2. Prepare Your Content</h3>
+<p>Place your blog posts in the <code>content/</code> directory. Each post should be a directory named after its slug, containing an <code>index.md</code> file with front-matter metadata and the content in Markdown format.</p>
+<h4 id="example-of-contentfirst-postindexmd">Example of content/first-post/index.md</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#34;My First Post&#34;
+</span></span><span style="display:flex;"><span>date: &#34;2025-03-19&#34;
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>This is the content of my first post. It&#39;s written in Markdown.
+</span></span></code></pre></div><h3 id="3-customize-the-templates">3. Customize the Templates</h3>
+<p>Edit the HTML files in the <code>templates/</code> directory to fit your design needs. The templates are:</p>
+<ul>
+<li><code>layout.html</code>: The main layout for the pages (includes header, footer, and content).</li>
+<li><code>header.html</code>: The header section of the site (can include site name, navigation, etc.).</li>
+<li><code>footer.html</code>: The footer section of the site (can include copyright, social links, etc.).</li>
+<li><code>post-list.html</code>: Template for displaying a list of posts.</li>
+<li><code>post-item.html</code>: Template for individual post previews on the index page.</li>
+<li><code>post-detail.html</code>: Template for individual post pages.</li>
+</ul>
+<h3 id="4-run-the-generator">4. Run the Generator</h3>
+<p>Once your content and templates are ready, run the site generator.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm run build
+</span></span></code></pre></div><p>This will:</p>
+<ol>
+<li>Generate <code>styles/output.css</code> through the @tailwindcss/cli based on <code>templates/input.css</code>.</li>
+<li>Read all the <code>.md</code> files in the <code>content/</code> directory.</li>
+<li>Generate static HTML files for each post in the <code>public/</code> directory.</li>
+<li>Create an <code>index.html</code> file listing all the posts.</li>
+<li>Copy over any non-Markdown assets like images into the <code>public/</code> directory.</li>
+<li>Generate a <code>sitemap.xml</code> for search engine indexing.</li>
+</ol>
+<h3 id="5-others">5. Others</h3>
+<p>You can view the site live locally by running <code>npm run dev</code>.</p>
+<h2 id="license">License</h2>
+<p>MIT Licensed, see <a href="https://github.com/discaptive/minimic-discaptive/blob/main/LICENSE">LICENSE</a>.</p>
+
+            </div><div class="py-6 text-sm text-gray-700">
+                <script
+                  src="https://giscus.app/client.js"
+                  data-repo="[ENTER REPO HERE]"
+                  data-repo-id="[ENTER REPO ID HERE]"
+                  data-category="[ENTER CATEGORY NAME HERE]"
+                  data-category-id="[ENTER CATEGORY ID HERE]"
+                  data-mapping="pathname"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="light"
+                  data-lang="en"
+                  crossorigin="anonymous"
+                  async
+                ></script>
+              </div>
+            
+          </div>
+
+          <footer>
+            <div
+              class="divide-gray-200 text-sm font-medium leading-5 xl:col-start-1 xl:row-start-2 xl:divide-y"
+            >
+              <div class="py-4 xl:py-8">
+                <h2 class="text-xs uppercase tracking-wide text-gray-500">
+                  Tags
+                </h2>
+                <div class="flex flex-wrap">
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 xl:pt-8">
+              <a
+                class="text-indigo-500 hover:text-indigo-600"
+                aria-label="Back to the list"
+                href="/"
+                >← Back to the list</a
+              >
+            </div>
+          </footer>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>
+        <footer><div class="mt-16 flex flex-col items-center">
+  <div class="mb-2 text-sm text-gray-500">
+    <span>(C) 2025.  all rights reserved.</span>
+  </div>
+
+  <div class="mb-8 text-sm text-gray-500">
+    <span class="mr-1">Built with</span>
+    <a
+      class="font-semibold underline"
+      href="https://github.com/discaptive/hugo-discaptive"
+      target="_blank"
+      >hugo-discaptive</a
+    >
+  </div>
+</div>
+</footer>
+      </div>
+    </section>
+  </body>
+</html>

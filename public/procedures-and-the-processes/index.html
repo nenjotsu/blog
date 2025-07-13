@@ -1,0 +1,402 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+
+
+
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<meta
+  name="googlebot"
+  content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+/>
+
+<meta name="description" content="
+번역서를 중점으로 보고 있습니다. 번역서에서 이해하기 어려운 말은 원서에서도 같이 참고하고 있습니다.
+
+프로그래밍을 장기에 빗대서 표현하면 앞장에서는 어떻게 보면 장기 말이 무엇인지 어떻게 움직일 수 있는 건지에 대해서 배웠다.
+장기에 대해서 알았다고 장기를 잘하는 것은 아니다. 우리는 장기를 두기 위해 전략과 전술을 펼쳐야 한다. 어떤 말을 움직이는 게 얼마 만큼의 가치가 있는지, 어떤 결과가 나올지 미리 예측을 하는 경험이 필요하다.
+프로그램을 짜는 일도 마찬가지다. 우리가 무슨 이유로 무엇을 위해서 어떻게 만드는지 알아야 한다." />
+
+
+<meta property="og:title" content="SICP: Procedures and the Processes They Generate" />
+<meta property="og:description" content="
+번역서를 중점으로 보고 있습니다. 번역서에서 이해하기 어려운 말은 원서에서도 같이 참고하고 있습니다.
+
+프로그래밍을 장기에 빗대서 표현하면 앞장에서는 어떻게 보면 장기 말이 무엇인지 어떻게 움직일 수 있는 건지에 대해서 배웠다.
+장기에 대해서 알았다고 장기를 잘하는 것은 아니다. 우리는 장기를 두기 위해 전략과 전술을 펼쳐야 한다. 어떤 말을 움직이는 게 얼마 만큼의 가치가 있는지, 어떤 결과가 나올지 미리 예측을 하는 경험이 필요하다.
+프로그램을 짜는 일도 마찬가지다. 우리가 무슨 이유로 무엇을 위해서 어떻게 만드는지 알아야 한다." />
+<meta property="og:url" content="//localhost:1313/procedures-and-the-processes/" />
+<meta property="og:site_name" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="//localhost:1313/images/og-image.png" />
+
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SICP: Procedures and the Processes They Generate" />
+<meta name="twitter:description" content="
+번역서를 중점으로 보고 있습니다. 번역서에서 이해하기 어려운 말은 원서에서도 같이 참고하고 있습니다.
+
+프로그래밍을 장기에 빗대서 표현하면 앞장에서는 어떻게 보면 장기 말이 무엇인지 어떻게 움직일 수 있는 건지에 대해서 배웠다.
+장기에 대해서 알았다고 장기를 잘하는 것은 아니다. 우리는 장기를 두기 위해 전략과 전술을 펼쳐야 한다. 어떤 말을 움직이는 게 얼마 만큼의 가치가 있는지, 어떤 결과가 나올지 미리 예측을 하는 경험이 필요하다.
+프로그램을 짜는 일도 마찬가지다. 우리가 무슨 이유로 무엇을 위해서 어떻게 만드는지 알아야 한다." />
+<meta name="twitter:image" content="//localhost:1313/images/og-image.png" />
+
+<title>SICP: Procedures and the Processes They Generate</title>
+
+    <link rel="stylesheet" href="/css/output.css" />
+
+
+  </head>
+  <body class="bg-white text-black antialiased">
+    <section class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+      <div class="flex h-screen flex-col justify-between font-sans">
+        <header
+          class="flex items-center w-full bg-white justify-between py-10 sticky top-0 z-50"
+        >
+          <a class="group break-words" aria-label="" href="/">
+  <div class="flex items-center justify-between">
+    <div class="sm:mr-3">
+      <img src="/images/logo.svg" width="32" height="32" alt="Logo Image" />
+    </div>
+
+    <div class="hidden text-2xl font-semibold sm:block group-hover:underline">
+      <span></span>
+    </div>
+  </div>
+</a>
+
+<div class="flex items-center space-x-4 leading-5 sm:space-x-6">
+  <div class="items-center space-x-4 overflow-x-auto flex sm:space-x-6">
+    
+      <a
+        href="mailto:youremail@email.com"
+        class="font-medium text-gray-900 hover:text-indigo-500"
+        
+        >Contact</a
+      >
+    
+      <a
+        href="/tags"
+        class="font-medium text-gray-900 hover:text-indigo-500"
+        
+        >Tags</a
+      >
+    
+      <a
+        href="/about"
+        class="font-medium text-gray-900 hover:text-indigo-500"
+        
+        >About</a
+      >
+    
+    <a href="https://github.com/nenjotsu" target="_blank">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="fill-[#24292F] hover:fill-indigo-500 h-6 w-6"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M12.0099 0C5.36875 0 0 5.5 0 12.3042C0 17.7432 3.43994 22.3472 8.21205 23.9767C8.80869 24.0992 9.02724 23.712 9.02724 23.3862C9.02724 23.101 9.00757 22.1232 9.00757 21.1045C5.6667 21.838 4.97099 19.6378 4.97099 19.6378C4.43409 18.2118 3.63858 17.8452 3.63858 17.8452C2.54511 17.0915 3.71823 17.0915 3.71823 17.0915C4.93117 17.173 5.56763 18.3545 5.56763 18.3545C6.64118 20.2285 8.37111 19.699 9.06706 19.373C9.16638 18.5785 9.48473 18.0285 9.82275 17.723C7.15817 17.4377 4.35469 16.3785 4.35469 11.6523C4.35469 10.3078 4.8316 9.20775 5.58729 8.35225C5.46807 8.04675 5.0504 6.7835 5.70677 5.09275C5.70677 5.09275 6.72083 4.76675 9.00732 6.35575C9.98625 6.08642 10.9958 5.9494 12.0099 5.94825C13.024 5.94825 14.0577 6.091 15.0123 6.35575C17.299 4.76675 18.3131 5.09275 18.3131 5.09275C18.9695 6.7835 18.5515 8.04675 18.4323 8.35225C19.2079 9.20775 19.6652 10.3078 19.6652 11.6523C19.6652 16.3785 16.8617 17.4172 14.1772 17.723C14.6148 18.11 14.9924 18.8433 14.9924 20.0045C14.9924 21.6545 14.9727 22.9788 14.9727 23.386C14.9727 23.712 15.1915 24.0992 15.7879 23.977C20.56 22.347 23.9999 17.7432 23.9999 12.3042C24.0196 5.5 18.6312 0 12.0099 0Z"
+        />
+      </svg>
+    </a>
+  </div>
+</div>
+
+        </header>
+        <main class="mb-auto">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "SICP: Procedures and the Processes They Generate",
+      "datePublished": "2025-03-24T00:00:00\u002b00:00",
+      "dateModified": "2025-03-24T00:00:00\u002b00:00",
+      "description": "\u003cblockquote\u003e\n\u003cp\u003e번역서를 중점으로 보고 있습니다. 번역서에서 이해하기 어려운 말은 원서에서도 같이 참고하고 있습니다.\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\u003cp\u003e프로그래밍을 장기에 빗대서 표현하면 앞장에서는 어떻게 보면 장기 말이 무엇인지 어떻게 움직일 수 있는 건지에 대해서 배웠다.\u003c\/p\u003e\n\u003cp\u003e장기에 대해서 알았다고 장기를 잘하는 것은 아니다. 우리는 장기를 두기 위해 전략과 전술을 펼쳐야 한다. 어떤 말을 움직이는 게 얼마 만큼의 가치가 있는지, 어떤 결과가 나올지 미리 예측을 하는 경험이 필요하다.\u003c\/p\u003e\n\u003cp\u003e프로그램을 짜는 일도 마찬가지다. 우리가 무슨 이유로 무엇을 위해서 어떻게 만드는지 알아야 한다.\u003c\/p\u003e",
+      "image": "/images/og-image.png",
+      "url": "\/\/localhost:1313\/procedures-and-the-processes\/",
+      "author": [{ "@type": "Person", "name": "nenjotsu" }]
+    }
+  </script>
+  <section class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+    <article>
+      <div class="xl:divide-y xl:divide-gray-200">
+        <header class="pt-6 xl:pb-6">
+          <div class="space-y-1 text-center">
+            <dl class="space-y-10">
+              <div>
+                <dt class="sr-only">Published on</dt>
+                <dd class="text-base font-medium leading-6 text-gray-500">
+                  
+                  
+                  <time datetime="2025-03-24T00:00:00&#43;00:00">Monday, March 24, 2025</time>
+                </dd>
+              </div>
+            </dl>
+            <div>
+              <h1
+                class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
+              >
+                <div>SICP: Procedures and the Processes They Generate</div>
+              </h1>
+            </div>
+          </div>
+        </header>
+
+        <div
+          class="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
+        >
+          <dl class="pb-10 pt-6 xl:border-b xl:border-gray-200 xl:pt-11">
+            <dt class="sr-only">Authors</dt>
+            <dd>
+              <ul
+                class="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8"
+              >
+                <li class="flex items-center space-x-2">
+                  <img
+                    src="https://github.com/nenjotsu.png"
+                    class="rounded-full"
+                    width="38"
+                    height="38"
+                    alt="Profile Image"
+                    loading="lazy"
+                  />
+                  <dl class="whitespace-nowrap text-sm font-medium leading-5">
+                    <dt class="sr-only">Name</dt>
+                    <dd class="text-gray-900">nenjotsu</dd>
+                  </dl>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <div
+            class="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0"
+          >
+            <div class="prose max-w-none pb-8 pt-10">
+              <details open>
+                <summary class="ml-6 pb-2 pt-2 text-xl font-bold">
+                  <span>Table of Contents</span>
+                </summary>
+
+                <nav class="ml-6">
+                    <ul>
+                        <li><a href="#linear-recursion-and-iteration">Linear Recursion and Iteration</a></li>
+                        <li><a href="#tree-recursion">Tree Recursion</a></li>
+                        <li><a href="#orders-of-growth">Orders of Growth</a></li>
+                        <li><a href="#%ec%a0%95%eb%a6%ac">정리</a></li>
+                    </ul>
+                </nav>
+              </details>
+
+              <blockquote>
+<p>번역서를 중점으로 보고 있습니다. 번역서에서 이해하기 어려운 말은 원서에서도 같이 참고하고 있습니다.</p>
+</blockquote>
+<p>프로그래밍을 장기에 빗대서 표현하면 앞장에서는 어떻게 보면 장기 말이 무엇인지 어떻게 움직일 수 있는 건지에 대해서 배웠다.</p>
+<p>장기에 대해서 알았다고 장기를 잘하는 것은 아니다. 우리는 장기를 두기 위해 전략과 전술을 펼쳐야 한다. 어떤 말을 움직이는 게 얼마 만큼의 가치가 있는지, 어떤 결과가 나올지 미리 예측을 하는 경험이 필요하다.</p>
+<p>프로그램을 짜는 일도 마찬가지다. 우리가 무슨 이유로 무엇을 위해서 어떻게 만드는지 알아야 한다.</p>
+<p>Procedure는 계산 과정이 그 내부에서 어떻게 단계별로 전개가 될지 정의하는 것이다.</p>
+<h2 id="linear-recursion-and-iteration">Linear Recursion and Iteration</h2>
+<p>우선, <code>factorial</code>에 대해서 알아보자.</p>
+<p>Factorial은 다음과 같이 정의할 수 있다.</p>
+<blockquote>
+<p>n!= n·(n−1)·(n−2)···3·2·1</p>
+</blockquote>
+<p>Factorial을 계산하는 방법은 많다. 그 중 하나는 <code>n!</code>은 <code>n * (n-1)!</code>을 이용하는 것이다.</p>
+<blockquote>
+<p>n!= n·[(n−1)·(n−2)···3·2·1]= n·(n−1)!</p>
+</blockquote>
+<p>따라서 우리는 이를 다음과 같은 procedure로 나타낼 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">factorial</span> n)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">if </span>(= n <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    (* n (<span style="color:#a6e22e">factorial</span> (- n <span style="color:#ae81ff">1</span>)))))
+</span></span></code></pre></div><p>이는 다음과 같이 동작할 수 있다.</p>
+<p><img src="1.png" alt=""></p>
+<p>우리가 앞서 소개한 recursive하게 자기 자신을 정의하면서 body에 그 procedure를 사용하고 있다. 이것을 보고 recursive하게 동작한다고 할 수 있다. recursive의 특징 중 하나는 위 동작처럼 자라나고 줄어드는 특징이 있다.</p>
+<p>Factorial을 구하는 다른 방법을 알아보자.</p>
+<p><code>n!</code>은 1에 2를 곱한 값에 다시 3, 4를 차례로 곱하면서 n에 도달할 때까지 그 과정을 계속 되풀이하는 것이다.</p>
+<p>지금까지 곱한 값을 <code>product</code>라 놓고 1부터 <code>n</code>까지 탐색하는 변수를 <code>counter</code>라고 두고, 그 단계를 지날 때마다 <code>counter</code>와 <code>product</code>를 아래 규칙에 따라 바꿀 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>product = counter \* product
+</span></span><span style="display:flex;"><span>counter = counter + 1
+</span></span></code></pre></div><p>counter가 n에 도달할 때 결국 product 값은 <code>n!</code>이 될 수 있다. 이를 procedure로 표현하면 아래와 같다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">factorial</span> n)
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">fact-iter</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span> n))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fact-iter</span> product counter max-count)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">if </span>(&gt; counter max-count)
+</span></span><span style="display:flex;"><span>      product
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">fact-iter</span> (* counter product)
+</span></span><span style="display:flex;"><span>                 (+ counter <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>                 max-count)))
+</span></span></code></pre></div><p>이는 다음처럼 동작한다.</p>
+<p><img src="2.png" alt=""></p>
+<p>이것은 iterative하게 동작한다고 할 수 있다. 즉, 반복하는 프로세스를 가졌는데 우리는 내부에 <code>counter</code>, <code>max-count</code>라는 state를 관리하는 변수를 줘서 조건을 따질 수 있다. recursive와는 다르게 자라나고 줄어드는 과정은 없다.</p>
+<h2 id="tree-recursion">Tree Recursion</h2>
+<p>또 다른 흔하디 흔한 계산 방식 중 하나는 <em>tree recursion</em>이다.</p>
+<p>예를 들어, 다음과 같이 피보나치 수열을 계산하는 걸 생각해보자.</p>
+<blockquote>
+<p>0, 1, 1, 2, 3, 5, 8, 13, 21, &hellip;</p>
+</blockquote>
+<p>일반적으로 피보나치 수열은 다음과 같이 정의할 수 있다.</p>
+<p><img src="3.png" alt=""></p>
+<p>우리는 바로 recursive procedure로 만들 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fib</span> n)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">cond </span>((= n <span style="color:#ae81ff">0</span>) <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        ((= n <span style="color:#ae81ff">1</span>) <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#66d9ef">else </span>(+ (<span style="color:#a6e22e">fib</span> (- n <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>                 (<span style="color:#a6e22e">fib</span> (- n <span style="color:#ae81ff">2</span>))))))
+</span></span></code></pre></div><p>위 procedure대로 (fib 5)를 구하기 위해 실행하면 어떻게 되는지 살펴보자.</p>
+<p><img src="4.png" alt=""></p>
+<p><code>fib</code> procedure의 정의대로 <code>(fib 5)</code>를 구하기 위해서는 <code>(fib 4)</code>와 <code>(fib 3)</code>를 구해야 하고, <code>(fib 4)</code>를 구하기 위해서는 <code>(fib 3)</code>와 <code>(fib 2)</code>를 구해야 한다. 위처럼 나뭇가지 혹은 뿌리처럼 갈래로 펼쳐진 꼴을 tree 구조라 한다.</p>
+<p><code>fib</code> procedure는 현재 단계마다 갈래가 2개씩 갈라져 나온다.</p>
+<p>현재 피보나치 procedure는 <code>(fib 5)</code>를 구하기 위해 <code>(fib 3)</code>, <code>(fib 2)</code>, <code>(fib 1)</code>, <code>(fib 0)</code>을 중복으로 호출하고 있다.</p>
+<p>같은 값을 가지는 계산을 반복적으로 하기 때문에 위 방법은 사실 좋지 않은 방법이다.</p>
+<p>다음처럼 피보나치 수열을 iterative 프로세스로 바꿀 수 있다.</p>
+<p>정수 a, b가 있다고 하면, 첫 값은 차례로 Fib(1) = 1과 Fib(0) = 0으로 놓고, 되풀이할 때마다 아래 규칙에 따라 값을 바꿀 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>a = a + b
+</span></span><span style="display:flex;"><span>b = a
+</span></span></code></pre></div><p>이를 반복하면 결국 a와 b가 Fib(n + 1), Fib(n)이 되는데 이 규칙을 다음과 같이 procedure로 작성해보자.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fib</span> n)
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">fib-iter</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">0</span> n))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fib-iter</span> a b count)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">if </span>(= count <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>      b
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">fib-iter</span> (+ a b) a (- count <span style="color:#ae81ff">1</span>))))
+</span></span></code></pre></div><p>위 방법은 linear recursive하게 Fib(n) 값을 구하는 방법이다. 아래와 같이 동작할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#a6e22e">fib</span> <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>&gt;
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">fib-tier</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">fib-iter</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">fib-iter</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">fib-iter</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">fib-iter</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">fib-iter</span> <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><p>여기서 본 tree recursion으로 이걸 쓸모 없다고 판단해서는 안된다. 여러 계층을 가진 구조화된 데이터를 다루는 프로세스에서는 또 잘 맞을 경우도 있기 때문이다.</p>
+<p>물론, 앞서 만든 <code>fib</code> procedure의 경우 처음 만든 게 성능이 훨씬 떨어지지만 수학적인 정의를 그대로 옮긴 것처럼 그 정의를 쉽게 파악할 수 있는 장점 또한 있다.</p>
+<h2 id="orders-of-growth">Orders of Growth</h2>
+<p>앞서 나온 문제를 볼 때 어떤 계산 과정을 가지고냐에 따라 사용하는 resource의 크기가 달라진다. 이 차이를 비교하고 싶을 때 사용하는 간편한 방법 중 하나는 <em>order of growth</em>라는 개념을 사용하여 input의 크기에 따라 resource의 늘어나는 사용량을 측정할 수 있다.</p>
+<p>어떤 문제의 크기를 나타내는 <code>n</code>이라는 변수가 있다고 하자. 그리고 <code>R(n)</code>은 크기가 n인 문제를 해결하는 데 필요한 자원의 양을 의미한다.</p>
+<p>한 번에 고정된 수의 연산만 수행할 수 있는 컴퓨터에서는 실행 시간은 기본적인 연산 횟수에 비례한다.</p>
+<p>우리는 <code>R(n)</code>의 증가 속도를 분석할 때 <code>Θ(f(n))</code> 표기법(세타 표기법)을 사용한다.</p>
+<blockquote>
+<p>R(n)=Θ(f(n))</p>
+</blockquote>
+<p>결국, Θ(세타) 표기법은 어떤 함수의 성장 속도를 분석할 때 사용하는 개념이다.</p>
+<p>만약 어떤 알고리즘이 입력 크기 n이 커질수록 대략 2n^2만큼 시간이 걸린다면, 우리는 <code>R(n) = Θ(n^2)</code> 라고 쓴다.</p>
+<p>만약 실행 시간이 대략 5n + 10이라면 <code>R(n) = Θ(n)</code> 큰 수에서는 상수 10이 의미가 없고, 주된 성장 속도를 결정하는 것은 n이므로 이와 같이 표기할 수 있다.</p>
+<blockquote>
+<p>한 마디로 입력 크기가 달라질 때 걸리는 시간의 패턴을 보는 것이다. 알고리즘을 평가하는 중요한 개념이므로 잘 알아두면 좋다.</p>
+</blockquote>
+<p>앞서 살펴본 factorial의 두 케이스를 예로 들어보자.</p>
+<p>Recursive하게 만든 procedure에서는 계산 단계가 <code>n</code>에 비례하여 늘어났다. 이 프로세스가 거쳐야 할 단계는 따라서 <code>Θ(n)</code>만큼 늘어나고, 계산에 필요한 기억 공간도 <code>Θ(n)</code>으로 늘어났다.</p>
+<p>Iterative하게 만든 procedure의 경우, 그 계산 단계가 <code>n</code>에 비례하여 <code>Θ(n)</code>만큼 늘어난 건 동일하지만 필요한 기억 공간의 경우 <code>Θ(1)</code>로 고정적이다.</p>
+<h2 id="정리">정리</h2>
+<ol>
+<li><strong>재귀(Recursion)</strong>: 문제를 작은 조각으로 나누고 반복 호출.</li>
+</ol>
+<ul>
+<li>예: <code>(define (factorial n) (if (= n 1) 1 (* n (factorial (- n 1)))))</code>.</li>
+</ul>
+<ol start="2">
+<li><strong>선형 재귀 vs 반복</strong>: 메모리를 쌓는 재귀 vs 꼬리 재귀(tail recursion)로 반복처럼.</li>
+</ol>
+<ul>
+<li>예: <code>(define (fact-iter n acc) (if (= n 1) acc (fact-iter (- n 1) (* n acc))))</code>.</li>
+</ul>
+<ol start="3">
+<li><strong>트리 재귀</strong>: 여러 갈래로 뻗는 재귀(비효율적).</li>
+</ol>
+<ul>
+<li>예: <code>(fib n) → (fib (- n 1)) + (fib (- n 2))</code>.</li>
+</ul>
+<ol start="4">
+<li><strong>복잡도</strong>: 시간(O(n))과 공간 사용 분석.</li>
+</ol>
+<p>정의: 프로시저는 단순 호출을 넘어, 실행 과정(재귀, 반복)을 설계한다.</p>
+
+            </div><div class="py-6 text-sm text-gray-700">
+                <script
+                  src="https://giscus.app/client.js"
+                  data-repo="[ENTER REPO HERE]"
+                  data-repo-id="[ENTER REPO ID HERE]"
+                  data-category="[ENTER CATEGORY NAME HERE]"
+                  data-category-id="[ENTER CATEGORY ID HERE]"
+                  data-mapping="pathname"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="light"
+                  data-lang="en"
+                  crossorigin="anonymous"
+                  async
+                ></script>
+              </div>
+            
+          </div>
+
+          <footer>
+            <div
+              class="divide-gray-200 text-sm font-medium leading-5 xl:col-start-1 xl:row-start-2 xl:divide-y"
+            >
+              <div class="py-4 xl:py-8">
+                <h2 class="text-xs uppercase tracking-wide text-gray-500">
+                  Tags
+                </h2>
+                <div class="flex flex-wrap">
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 xl:pt-8">
+              <a
+                class="text-indigo-500 hover:text-indigo-600"
+                aria-label="Back to the list"
+                href="/"
+                >← Back to the list</a
+              >
+            </div>
+          </footer>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>
+        <footer><div class="mt-16 flex flex-col items-center">
+  <div class="mb-2 text-sm text-gray-500">
+    <span>(C) 2025.  all rights reserved.</span>
+  </div>
+
+  <div class="mb-8 text-sm text-gray-500">
+    <span class="mr-1">Built with</span>
+    <a
+      class="font-semibold underline"
+      href="https://github.com/discaptive/hugo-discaptive"
+      target="_blank"
+      >hugo-discaptive</a
+    >
+  </div>
+</div>
+</footer>
+      </div>
+    </section>
+  </body>
+</html>

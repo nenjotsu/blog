@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on </title>
+    <link>//localhost:1313/tags/notes/</link>
+    <description>Recent content in Notes on </description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 25 Feb 2025 02:25:00 +0900</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Hugo Discaptive Theme</title>
+      <link>//localhost:1313/about/</link>
+      <pubDate>Tue, 25 Feb 2025 02:25:00 +0900</pubDate>
+      <guid>//localhost:1313/about/</guid>
+      <description>README</description>
+    </item>
+    <item>
+      <title>한국어 마크다운 예제 (Korean Markdown Example)</title>
+      <link>//localhost:1313/korean-markdown-example/</link>
+      <pubDate>Tue, 25 Feb 2025 02:10:00 +0900</pubDate>
+      <guid>//localhost:1313/korean-markdown-example/</guid>
+      <description>&amp;lsquo;한국어 마크다운 예제&amp;rsquo;는 마크다운을 지원하는 애플리케이션을 테스트하기 위한 목적으로 만들어졌습니다.</description>
+    </item>
+    <item>
+      <title>Lorem Ipsum</title>
+      <link>//localhost:1313/lorem-ipsum/</link>
+      <pubDate>Tue, 25 Feb 2025 02:00:15 +0900</pubDate>
+      <guid>//localhost:1313/lorem-ipsum/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
+    </item>
+    <item>
+      <title>Full Markdown</title>
+      <link>//localhost:1313/markdown-sample/</link>
+      <pubDate>Tue, 25 Feb 2025 01:58:26 +0900</pubDate>
+      <guid>//localhost:1313/markdown-sample/</guid>
+      <description>You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we&amp;rsquo;ll use three here to also align the raw Markdown)</description>
+    </item>
+  </channel>
+</rss>

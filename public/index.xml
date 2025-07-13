@@ -1,40 +1,75 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Red Blowfish</title>
+    <title></title>
     <link>//localhost:1313/</link>
-    <description>Recent content on Red Blowfish</description>
+    <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 04 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Super cool article that I wrote</title>
-      <link>//localhost:1313/posts/post-lite-one/</link>
-      <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/post-lite-one/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in eleifend justo, vestibulum congue lacus. Quisque est libero, lacinia sed placerat ac, interdum id urna.</description>
+      <title>SICP: Introduction to Data Abstraction</title>
+      <link>//localhost:1313/introduction-to-data-abstraction/</link>
+      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/introduction-to-data-abstraction/</guid>
+      <description>&lt;p&gt;우리는 지금까지 &lt;code&gt;computational processes&lt;/code&gt;와 &lt;code&gt;the role of procedures&lt;/code&gt;에 대해 살펴봤다. &lt;code&gt;primitive data (numbers)&lt;/code&gt;와 &lt;code&gt;primitive operations (arithmetic op-erations)&lt;/code&gt;를 사용하는 방법도 살펴봤다. 또한, &lt;code&gt;composition&lt;/code&gt;, &lt;code&gt;conditionals&lt;/code&gt;, &lt;code&gt;parameters&lt;/code&gt; 등을 이용하여 &lt;code&gt;procedures&lt;/code&gt;를 결합해 &lt;code&gt;compound procedures&lt;/code&gt;를 만들어보기도 했다. &lt;code&gt;define&lt;/code&gt; 키워드를 이용하여 프로시저를 추상화(abstraction)하는 방법도 살펴봤다.&lt;/p&gt;&#xA;&lt;p&gt;Procedure는 process가 진행되는 방식의 하나의 패턴으로 볼 수 있다. 우리는 이런 procedure들이 어떤 패턴을 가지는지 분류하고, 그것들을 어떻게 이해할 수 있는지 생각해 봤다. 그리고 간단한 알고리즘 분석도 해봤다. &lt;code&gt;higher-order procedures&lt;/code&gt;가 계산을 더 일반적인 방식으로 다룰 수 있게 함으로써 프로그래밍 언어의 능력을 끌어 올려준다는 것을 보았다. 이런 것들이 결국 프로그래밍의 본질이다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Super cool article that I wrote</title>
-      <link>//localhost:1313/posts/post-lite-three/</link>
-      <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/post-lite-three/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in eleifend justo, vestibulum congue lacus. Quisque est libero, lacinia sed placerat ac, interdum id urna.</description>
+      <title>SICP: Formulating Abstractions with Higher-Order Procedures</title>
+      <link>//localhost:1313/abstractions-with-higher-order-procedures/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/abstractions-with-higher-order-procedures/</guid>
+      <description>&lt;p&gt;앞서 봤던 프로시저들은 특정 숫자를 직접 정하지 않고, input으로 받은 그 숫자에 대한 복합적인 연산을 표현하는 정도의 &lt;em&gt;abstraction&lt;/em&gt;이었다.&lt;/p&gt;&#xA;&lt;p&gt;다음과 같은 프로시저가 그렇다.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-scheme&#34; data-lang=&#34;scheme&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;define &lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;cube&lt;/span&gt; x) (* x x x))&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;우리는 **어떤 특정한 숫자의 세제곱(cube)**을 이야기하는 것이 아니라, **어떤 숫자든 세제곱을 구하는 방법(방법론)**에 대해 이야기하고 있다.&lt;/p&gt;&#xA;&lt;p&gt;위와 같은 procedure가 없더래도 &lt;code&gt;(* 3 3 3)&lt;/code&gt;, &lt;code&gt;(* x x x)&lt;/code&gt;, &lt;code&gt;(* y y y)&lt;/code&gt;처럼 그냥 직접 곱셈 연산을 이용해서 값을 구하면 된다. 근데 이건 엄청난 단점을 초래한다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Super cool article that I wrote</title>
-      <link>//localhost:1313/posts/post-lite-two/</link>
-      <pubDate>Sun, 04 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/post-lite-two/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in eleifend justo, vestibulum congue lacus. Quisque est libero, lacinia sed placerat ac, interdum id urna.</description>
+      <title>SICP: Procedures and the Processes They Generate</title>
+      <link>//localhost:1313/procedures-and-the-processes/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/procedures-and-the-processes/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;번역서를 중점으로 보고 있습니다. 번역서에서 이해하기 어려운 말은 원서에서도 같이 참고하고 있습니다.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;프로그래밍을 장기에 빗대서 표현하면 앞장에서는 어떻게 보면 장기 말이 무엇인지 어떻게 움직일 수 있는 건지에 대해서 배웠다.&lt;/p&gt;&#xA;&lt;p&gt;장기에 대해서 알았다고 장기를 잘하는 것은 아니다. 우리는 장기를 두기 위해 전략과 전술을 펼쳐야 한다. 어떤 말을 움직이는 게 얼마 만큼의 가치가 있는지, 어떤 결과가 나올지 미리 예측을 하는 경험이 필요하다.&lt;/p&gt;&#xA;&lt;p&gt;프로그램을 짜는 일도 마찬가지다. 우리가 무슨 이유로 무엇을 위해서 어떻게 만드는지 알아야 한다.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Super cool article that I wrote</title>
-      <link>//localhost:1313/posts/post-lite-four/</link>
-      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/posts/post-lite-four/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in eleifend justo, vestibulum congue lacus. Quisque est libero, lacinia sed placerat ac, interdum id urna.</description>
+      <title>SICP: The Elements of Programming</title>
+      <link>//localhost:1313/the-elements-of-programming/</link>
+      <pubDate>Sun, 23 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/the-elements-of-programming/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;SICP 원문에서 독자에게 이해시키고자 하는 개념을 최대한 살리고자 모든 단어를 번역하지 않았습니다. 어려운 단어는 구글링 하시면 금방 이해하실 수 있을 거라고 생각합니다.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;A &lt;strong&gt;powerful&lt;/strong&gt; programming language는 컴퓨터에게 명령하는 수단 그 이상의 의미를 가진다. 프로그래밍 언어라는 것은 우리가 명령하는 그 과정에 대한 아이디어들을 하나로 조합해주는 일종의 &lt;code&gt;Framework&lt;/code&gt;로의 역할을 하기도 한다. 따라서 우리가 어떤 프로그래밍 언어를 설명할 때는, 해당 언어가 단순한 것들을 합쳐 더욱 복잡한 것을 형성하는 그러한 방법(Abstraction)을 어떻게 제공하는지 주목해야할 필요가 있다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About minimic-discaptive</title>
+      <link>//localhost:1313/about-minimic-discaptive/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/about-minimic-discaptive/</guid>
+      <description>&lt;h1 id=&#34;minimic-discaptive&#34;&gt;Minimic Discaptive&lt;/h1&gt;&#xA;&lt;p&gt;This project is a simple static site generator designed to convert Markdown-based posts into static HTML pages. It reads content from a directory, processes the data, and generates a fully static website with an index page, individual post pages, and a sitemap.&lt;/p&gt;&#xA;&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;Live: &lt;a href=&#34;https://discaptive.com&#34;&gt;discaptive.com&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;1.png&#34; alt=&#34;1&#34;&gt;&#xA;&lt;img src=&#34;2.png&#34; alt=&#34;2&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Markdown to HTML Conversion&lt;/strong&gt;: The site generator reads &lt;code&gt;.md&lt;/code&gt; files from the &lt;code&gt;content&lt;/code&gt; directory and converts them into static HTML pages.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Template Rendering&lt;/strong&gt;: Uses HTML templates for consistent layout across pages. Templates include a &lt;code&gt;header&lt;/code&gt;, &lt;code&gt;footer&lt;/code&gt;, and &lt;code&gt;layout&lt;/code&gt; among others.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Post Previews&lt;/strong&gt;: On the index page, posts are displayed with a title, date, and a preview of the content.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Post Detail Pages&lt;/strong&gt;: Each post has a dedicated page with full content.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Sitemap Generation&lt;/strong&gt;: Generates a sitemap for search engine indexing.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Customizable Configuration&lt;/strong&gt;: Site information like name, GitHub URL, and Giscus integration can be customized via a &lt;code&gt;config.yaml&lt;/code&gt; file.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;project-structure&#34;&gt;Project Structure&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── content/                &lt;span style=&#34;color:#75715e&#34;&gt;# Directory for blog posts (Markdown files)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;post-slug&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;/image.png&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;post-slug&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;/index.md&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── public/                 &lt;span style=&#34;color:#75715e&#34;&gt;# Generated static site files (HTML, assets)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── templates/              &lt;span style=&#34;color:#75715e&#34;&gt;# HTML templates for rendering pages&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── layout.html&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── header.html&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── footer.html&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   ├── ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── ...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── config.yaml             &lt;span style=&#34;color:#75715e&#34;&gt;# Configuration file for site settings&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── build.js                &lt;span style=&#34;color:#75715e&#34;&gt;# Main script for generating the site&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└── package.json            &lt;span style=&#34;color:#75715e&#34;&gt;# Node.js dependencies and scripts&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+    </item>
+    <item>
+      <title>About Hugo Discaptive Theme</title>
+      <link>//localhost:1313/about/</link>
+      <pubDate>Tue, 25 Feb 2025 02:25:00 +0900</pubDate>
+      <guid>//localhost:1313/about/</guid>
+      <description>README</description>
+    </item>
+    <item>
+      <title>한국어 마크다운 예제 (Korean Markdown Example)</title>
+      <link>//localhost:1313/korean-markdown-example/</link>
+      <pubDate>Tue, 25 Feb 2025 02:10:00 +0900</pubDate>
+      <guid>//localhost:1313/korean-markdown-example/</guid>
+      <description>&amp;lsquo;한국어 마크다운 예제&amp;rsquo;는 마크다운을 지원하는 애플리케이션을 테스트하기 위한 목적으로 만들어졌습니다.</description>
+    </item>
+    <item>
+      <title>Lorem Ipsum</title>
+      <link>//localhost:1313/lorem-ipsum/</link>
+      <pubDate>Tue, 25 Feb 2025 02:00:15 +0900</pubDate>
+      <guid>//localhost:1313/lorem-ipsum/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
+    </item>
+    <item>
+      <title>Full Markdown</title>
+      <link>//localhost:1313/markdown-sample/</link>
+      <pubDate>Tue, 25 Feb 2025 01:58:26 +0900</pubDate>
+      <guid>//localhost:1313/markdown-sample/</guid>
+      <description>You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we&amp;rsquo;ll use three here to also align the raw Markdown)</description>
     </item>
   </channel>
 </rss>

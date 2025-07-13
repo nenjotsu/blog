@@ -1,0 +1,481 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+
+
+
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="index, follow" />
+<meta
+  name="googlebot"
+  content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+/>
+
+<meta name="description" content="앞서 봤던 프로시저들은 특정 숫자를 직접 정하지 않고, input으로 받은 그 숫자에 대한 복합적인 연산을 표현하는 정도의 abstraction이었다.
+다음과 같은 프로시저가 그렇다.
+(define (cube x) (* x x x))
+우리는 **어떤 특정한 숫자의 세제곱(cube)**을 이야기하는 것이 아니라, **어떤 숫자든 세제곱을 구하는 방법(방법론)**에 대해 이야기하고 있다.
+위와 같은 procedure가 없더래도 (* 3 3 3), (* x x x), (* y y y)처럼 그냥 직접 곱셈 연산을 이용해서 값을 구하면 된다. 근데 이건 엄청난 단점을 초래한다." />
+
+
+<meta property="og:title" content="SICP: Formulating Abstractions with Higher-Order Procedures" />
+<meta property="og:description" content="앞서 봤던 프로시저들은 특정 숫자를 직접 정하지 않고, input으로 받은 그 숫자에 대한 복합적인 연산을 표현하는 정도의 abstraction이었다.
+다음과 같은 프로시저가 그렇다.
+(define (cube x) (* x x x))
+우리는 **어떤 특정한 숫자의 세제곱(cube)**을 이야기하는 것이 아니라, **어떤 숫자든 세제곱을 구하는 방법(방법론)**에 대해 이야기하고 있다.
+위와 같은 procedure가 없더래도 (* 3 3 3), (* x x x), (* y y y)처럼 그냥 직접 곱셈 연산을 이용해서 값을 구하면 된다. 근데 이건 엄청난 단점을 초래한다." />
+<meta property="og:url" content="//localhost:1313/abstractions-with-higher-order-procedures/" />
+<meta property="og:site_name" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="//localhost:1313/images/og-image.png" />
+
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SICP: Formulating Abstractions with Higher-Order Procedures" />
+<meta name="twitter:description" content="앞서 봤던 프로시저들은 특정 숫자를 직접 정하지 않고, input으로 받은 그 숫자에 대한 복합적인 연산을 표현하는 정도의 abstraction이었다.
+다음과 같은 프로시저가 그렇다.
+(define (cube x) (* x x x))
+우리는 **어떤 특정한 숫자의 세제곱(cube)**을 이야기하는 것이 아니라, **어떤 숫자든 세제곱을 구하는 방법(방법론)**에 대해 이야기하고 있다.
+위와 같은 procedure가 없더래도 (* 3 3 3), (* x x x), (* y y y)처럼 그냥 직접 곱셈 연산을 이용해서 값을 구하면 된다. 근데 이건 엄청난 단점을 초래한다." />
+<meta name="twitter:image" content="//localhost:1313/images/og-image.png" />
+
+<title>SICP: Formulating Abstractions with Higher-Order Procedures</title>
+
+    <link rel="stylesheet" href="/css/output.css" />
+
+
+  </head>
+  <body class="bg-white text-black antialiased">
+    <section class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+      <div class="flex h-screen flex-col justify-between font-sans">
+        <header
+          class="flex items-center w-full bg-white justify-between py-10 sticky top-0 z-50"
+        >
+          <a class="group break-words" aria-label="" href="/">
+  <div class="flex items-center justify-between">
+    <div class="sm:mr-3">
+      <img src="/images/logo.svg" width="32" height="32" alt="Logo Image" />
+    </div>
+
+    <div class="hidden text-2xl font-semibold sm:block group-hover:underline">
+      <span></span>
+    </div>
+  </div>
+</a>
+
+<div class="flex items-center space-x-4 leading-5 sm:space-x-6">
+  <div class="items-center space-x-4 overflow-x-auto flex sm:space-x-6">
+    
+      <a
+        href="mailto:youremail@email.com"
+        class="font-medium text-gray-900 hover:text-indigo-500"
+        
+        >Contact</a
+      >
+    
+      <a
+        href="/tags"
+        class="font-medium text-gray-900 hover:text-indigo-500"
+        
+        >Tags</a
+      >
+    
+      <a
+        href="/about"
+        class="font-medium text-gray-900 hover:text-indigo-500"
+        
+        >About</a
+      >
+    
+    <a href="https://github.com/nenjotsu" target="_blank">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="fill-[#24292F] hover:fill-indigo-500 h-6 w-6"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M12.0099 0C5.36875 0 0 5.5 0 12.3042C0 17.7432 3.43994 22.3472 8.21205 23.9767C8.80869 24.0992 9.02724 23.712 9.02724 23.3862C9.02724 23.101 9.00757 22.1232 9.00757 21.1045C5.6667 21.838 4.97099 19.6378 4.97099 19.6378C4.43409 18.2118 3.63858 17.8452 3.63858 17.8452C2.54511 17.0915 3.71823 17.0915 3.71823 17.0915C4.93117 17.173 5.56763 18.3545 5.56763 18.3545C6.64118 20.2285 8.37111 19.699 9.06706 19.373C9.16638 18.5785 9.48473 18.0285 9.82275 17.723C7.15817 17.4377 4.35469 16.3785 4.35469 11.6523C4.35469 10.3078 4.8316 9.20775 5.58729 8.35225C5.46807 8.04675 5.0504 6.7835 5.70677 5.09275C5.70677 5.09275 6.72083 4.76675 9.00732 6.35575C9.98625 6.08642 10.9958 5.9494 12.0099 5.94825C13.024 5.94825 14.0577 6.091 15.0123 6.35575C17.299 4.76675 18.3131 5.09275 18.3131 5.09275C18.9695 6.7835 18.5515 8.04675 18.4323 8.35225C19.2079 9.20775 19.6652 10.3078 19.6652 11.6523C19.6652 16.3785 16.8617 17.4172 14.1772 17.723C14.6148 18.11 14.9924 18.8433 14.9924 20.0045C14.9924 21.6545 14.9727 22.9788 14.9727 23.386C14.9727 23.712 15.1915 24.0992 15.7879 23.977C20.56 22.347 23.9999 17.7432 23.9999 12.3042C24.0196 5.5 18.6312 0 12.0099 0Z"
+        />
+      </svg>
+    </a>
+  </div>
+</div>
+
+        </header>
+        <main class="mb-auto">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "SICP: Formulating Abstractions with Higher-Order Procedures",
+      "datePublished": "2025-03-25T00:00:00\u002b00:00",
+      "dateModified": "2025-03-25T00:00:00\u002b00:00",
+      "description": "\u003cp\u003e앞서 봤던 프로시저들은 특정 숫자를 직접 정하지 않고, input으로 받은 그 숫자에 대한 복합적인 연산을 표현하는 정도의 \u003cem\u003eabstraction\u003c\/em\u003e이었다.\u003c\/p\u003e\n\u003cp\u003e다음과 같은 프로시저가 그렇다.\u003c\/p\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 style=\u0022color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\u0022\u003e\u003ccode class=\u0022language-scheme\u0022 data-lang=\u0022scheme\u0022\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e(\u003cspan style=\u0022color:#66d9ef\u0022\u003edefine \u003c\/span\u003e(\u003cspan style=\u0022color:#a6e22e\u0022\u003ecube\u003c\/span\u003e x) (* x x x))\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\u003cp\u003e우리는 **어떤 특정한 숫자의 세제곱(cube)**을 이야기하는 것이 아니라, **어떤 숫자든 세제곱을 구하는 방법(방법론)**에 대해 이야기하고 있다.\u003c\/p\u003e\n\u003cp\u003e위와 같은 procedure가 없더래도 \u003ccode\u003e(* 3 3 3)\u003c\/code\u003e, \u003ccode\u003e(* x x x)\u003c\/code\u003e, \u003ccode\u003e(* y y y)\u003c\/code\u003e처럼 그냥 직접 곱셈 연산을 이용해서 값을 구하면 된다. 근데 이건 엄청난 단점을 초래한다.\u003c\/p\u003e",
+      "image": "/images/og-image.png",
+      "url": "\/\/localhost:1313\/abstractions-with-higher-order-procedures\/",
+      "author": [{ "@type": "Person", "name": "nenjotsu" }]
+    }
+  </script>
+  <section class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
+    <article>
+      <div class="xl:divide-y xl:divide-gray-200">
+        <header class="pt-6 xl:pb-6">
+          <div class="space-y-1 text-center">
+            <dl class="space-y-10">
+              <div>
+                <dt class="sr-only">Published on</dt>
+                <dd class="text-base font-medium leading-6 text-gray-500">
+                  
+                  
+                  <time datetime="2025-03-25T00:00:00&#43;00:00">Tuesday, March 25, 2025</time>
+                </dd>
+              </div>
+            </dl>
+            <div>
+              <h1
+                class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
+              >
+                <div>SICP: Formulating Abstractions with Higher-Order Procedures</div>
+              </h1>
+            </div>
+          </div>
+        </header>
+
+        <div
+          class="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
+        >
+          <dl class="pb-10 pt-6 xl:border-b xl:border-gray-200 xl:pt-11">
+            <dt class="sr-only">Authors</dt>
+            <dd>
+              <ul
+                class="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8"
+              >
+                <li class="flex items-center space-x-2">
+                  <img
+                    src="https://github.com/nenjotsu.png"
+                    class="rounded-full"
+                    width="38"
+                    height="38"
+                    alt="Profile Image"
+                    loading="lazy"
+                  />
+                  <dl class="whitespace-nowrap text-sm font-medium leading-5">
+                    <dt class="sr-only">Name</dt>
+                    <dd class="text-gray-900">nenjotsu</dd>
+                  </dl>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+          <div
+            class="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0"
+          >
+            <div class="prose max-w-none pb-8 pt-10">
+              <details open>
+                <summary class="ml-6 pb-2 pt-2 text-xl font-bold">
+                  <span>Table of Contents</span>
+                </summary>
+
+                <nav class="ml-6">
+                    <ul>
+                        <li><a href="#procedures-as-arguments">Procedures as Arguments</a></li>
+                        <li><a href="#constructing-procedures-using-lambda">Constructing Procedures Using &lt;code&gt;lambda&lt;/code&gt;</a></li>
+                          <ul>
+                              <li>
+                                <a href="#using-let-to-create-local-variables">Using &lt;code&gt;let&lt;/code&gt; to create local variables</a>
+                              </li>
+                          </ul>
+                        <li><a href="#procedures-as-returned-values">Procedures as Returned Values</a></li>
+                          <ul>
+                              <li>
+                                <a href="#newtons-method">Newton&amp;rsquo;s method</a>
+                              </li>
+                              <li>
+                                <a href="#abstractions-and-first-class-procedures">Abstractions and first-class procedures</a>
+                              </li>
+                          </ul>
+                        <li><a href="#%ec%a0%95%eb%a6%ac">정리</a></li>
+                    </ul>
+                </nav>
+              </details>
+
+              <p>앞서 봤던 프로시저들은 특정 숫자를 직접 정하지 않고, input으로 받은 그 숫자에 대한 복합적인 연산을 표현하는 정도의 <em>abstraction</em>이었다.</p>
+<p>다음과 같은 프로시저가 그렇다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">cube</span> x) (* x x x))
+</span></span></code></pre></div><p>우리는 **어떤 특정한 숫자의 세제곱(cube)**을 이야기하는 것이 아니라, **어떤 숫자든 세제곱을 구하는 방법(방법론)**에 대해 이야기하고 있다.</p>
+<p>위와 같은 procedure가 없더래도 <code>(* 3 3 3)</code>, <code>(* x x x)</code>, <code>(* y y y)</code>처럼 그냥 직접 곱셈 연산을 이용해서 값을 구하면 된다. 근데 이건 엄청난 단점을 초래한다.</p>
+<p>직접 연산자를 사용한다면 항상 **기본적인 연산자(primitive operations, 여기서는 곱셈)**만을 사용해야 하기 때문에 **더욱 높은 수준의 연산(higher-level operations)**을 할 수 없다.</p>
+<p><strong>Powerful</strong> programming language는 common patterns를 가진 것에 이름을 주고(abstraction), 그 이름으로 기능을 사용할 수 있어야 한다.</p>
+<p>이것이 바로 대부분의 프로그래밍 언어가 프로시저를 정의하는 기능을 포함하는 이유이다.</p>
+<p>즉, **&ldquo;반복적으로 사용되는 연산을 추상화(Abstraction)하여 이름을 붙이고, 이후에는 그 이름만으로 개념을 표현할 수 있도록 하는 것&rdquo;**이 프로시저의 핵심 역할이다.</p>
+<p>Procedure에서 산수 문제만 따져봐도 해당 프로시저가 paramter로 숫자만 받을 수 있다면 추상화를 만드는 능력이 현저하게 제한될 것이다. 프로그래밍을 하다 보면 비슷한 패턴의 코드(프로그래밍 패턴)를 여러 개의 프로시저와 함께 사용해야 하는 경우가 많다.</p>
+<p>이런 패턴을 하나의 개념으로 표현하려면, 프로시저를 argument로 받을 수 있거나, procedure을 return 값으로 받을 수 있는 procedure을 만들어야 한다.</p>
+<p>이처럼 다른 프로시저를 입력값으로 받거나 반환할 수 있는 함수를 **고차 함수(higher-order procedures)**라고 한다.</p>
+<blockquote>
+<p>higher-order procedures도 functional programming 원칙 중 하나라서 알고 가야한다. 우리가 흔하게 접하는 클로저도 사실 고차 함수의 원칙을 고수하는 것 중에 하나라고 볼 수 있다.</p>
+</blockquote>
+<h2 id="procedures-as-arguments">Procedures as Arguments</h2>
+<p>다음 세 개의 프로시저를 살펴보자.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">sum-integers</span> a b)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">if </span>(&gt; a b)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    (+ a (<span style="color:#a6e22e">sum-integers</span> (+ a <span style="color:#ae81ff">1</span>) b))))
+</span></span></code></pre></div><p>위는 a부터 b까지의 합을 구하는 프로시저다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">sum-cubes</span> a b)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">if </span>(&gt; a b)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    (+ (<span style="color:#a6e22e">cube</span> a)
+</span></span><span style="display:flex;"><span>       (<span style="color:#a6e22e">sum-cubes</span> (+ a <span style="color:#ae81ff">1</span>) b))))
+</span></span></code></pre></div><p>위는 a부터 b까지의 모든 정수의 세제곱을 더하는 프로시저다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">pi-sum</span> a b)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">if </span>(&gt; a b)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    (+ (/ <span style="color:#ae81ff">1.0</span> (* a (+ a <span style="color:#ae81ff">2</span>)))
+</span></span><span style="display:flex;"><span>       (<span style="color:#a6e22e">pi-sum</span> (+ a <span style="color:#ae81ff">4</span>) b))))
+</span></span></code></pre></div><p>위는 다음과 같은 역할을 하는 프로시저다.</p>
+<p><img src="1.png" alt=""></p>
+<p>이 값은 <code>π / 8</code>에 수렴하는 프로시저다.</p>
+<p>위 3개의 프로시저가 같은 계산 방법을 쓰고 있음을 알아챌 수 있다. a를 받아서 계산하는 함수, a 다음 값을 얻어내는 함수만 다르고 나머지는 거의 같다.</p>
+<p>이는 다음과 같은 template을 생각해볼 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">&lt;name&gt;</span> a b)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">if </span>(&gt; a b)
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    (+ (<span style="color:#a6e22e">&lt;term&gt;</span> a)
+</span></span><span style="display:flex;"><span>       (<span style="color:#a6e22e">&lt;name&gt;</span> (<span style="color:#a6e22e">&lt;next&gt;</span> a) b))))
+</span></span></code></pre></div><p>이렇게 여러 프로시저에 동일한 계산법을 쓰고 있다는 것은 이거를 absctraction하게 쓸 수 있는 프로시저가 나올 수 있음을 확인할 수 있다. 위의 예제가 해당하는 것이 바로 <code>sigma</code> 즉, 시그마 notation이다. 수열의 덧셈을 하는 방법으로 사용할 수 있다.</p>
+<p><img src="2.png" alt=""></p>
+<p>시그마는 아무 수열의 덧셈 값을 나타낸다는 걸 바로 나타낼 수 있기에 쓸모가 많다.</p>
+<p>마찬가지로 프로그래밍에서도 이러한 표현 능력을 갖춘다면 더할 나위 없이 좋다. 따라서 아래와 같이 만들어볼 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">sum</span> term a next b)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">if </span>(&gt; a b)
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>      (+ (<span style="color:#a6e22e">term</span> a)
+</span></span><span style="display:flex;"><span>        (<span style="color:#a6e22e">sum</span> term (<span style="color:#a6e22e">next</span> a) next b))))
+</span></span></code></pre></div><p><code>sum</code>은 <code>a</code>, <code>b</code>, <code>term</code>, <code>next</code>를 받고 각각 lower bound, upper bound, 계산할 항을 결정하는 함수, 다음 항을 결정하는 함수로 쓸 수 있다.</p>
+<p>이 프로시저는 어떤 연산을 수행할지(term), a를 어떻게 증가시킬지(next)를 추상화한 것이다.</p>
+<p><code>sum</code>을 사용하는 방법은 일반적으로 프로시저를 사용하는 방법과 같다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">inc</span> n) (+ n <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">sum-cubes</span> a b)
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">sum</span> cube a inc b))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#a6e22e">sum-cubes</span> <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3025</span>
+</span></span></code></pre></div><p>이 <code>sum-cubes</code>를 사용하면 1부터 10까지의 정수를 모두 세제곱하고 더한 값을 얻을 수 있다.</p>
+<p>만약 그냥 일반적인 <code>sum</code>으로 사용하고 싶다면 다음과 같이 작성할 수도 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">identity</span> x) x)
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">inc</span> x) (+ x <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">sum</span> identity <span style="color:#ae81ff">1</span> inc <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">55</span>
+</span></span></code></pre></div><h2 id="constructing-procedures-using-lambda">Constructing Procedures Using <code>lambda</code></h2>
+<p>위에서 살펴본 <code>sum</code> 프로시저에 <code>term</code>과 <code>next</code>에 해당하는 프로시저를 계속 만들어내는 것은 아주 귀찮은 일이 아닐 수 없다.</p>
+<p>프로시저를 정의(define)하는 대신 &lsquo;argument에 4를 더해서 output을 내주는 것&rsquo; 이렇게 곧바로 나타낼 수 있다면 편하다.</p>
+<p>여기서 배울 <code>lambda</code>가 이를 도와준다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">x</span>) (+ x <span style="color:#ae81ff">4</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">x</span>) (/ <span style="color:#ae81ff">1.0</span> (* x (+ x <span style="color:#ae81ff">2</span>))))
+</span></span></code></pre></div><p>이렇게 사용할 수 있다.</p>
+<p>예제:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">sum-cubes</span> a b)
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">sum</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">x</span>) (* x x x))
+</span></span><span style="display:flex;"><span>    a
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">x</span>) (+ x <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>    b))
+</span></span></code></pre></div><p>위에서 표현한 식의 경우 앞서 얘기한 <code>sum-cubes</code>와 동일하다.</p>
+<p><code>lmabda</code>는 <code>define</code>으로 프로시저를 정의한 것과 크게 다르지 않으나, 프로시저에 이름을 따로 붙여서 정의하지는 않는다.</p>
+<h3 id="using-let-to-create-local-variables">Using <code>let</code> to create local variables</h3>
+<p>프로시저를 만들 때 argument로 받는 변수 뿐만 아니라 프로시저 안에서 사용할 변수를 만들어야 할 때도 있다. 이렇게 프로시저 안에서 사용하는 변수는 local variables라고 부를 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>f(x, y) = x(1 + xy)^2 + y(1 - y) + (1 + xy)(1 - y)
+</span></span></code></pre></div><p>위 식에서 반복하는 걸 줄이면 다음과 같다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>a = 1 + xy
+</span></span><span style="display:flex;"><span>b = 1 - y
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>f(x, y) = xa^2 + yb + ab
+</span></span></code></pre></div><p>이처럼 a, b같은 local variable로 정의해서 사용하면 깔끔하게 식을 얻을 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">f</span> x y)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">f-helper</span> a b)
+</span></span><span style="display:flex;"><span>    (+ (* x (<span style="color:#a6e22e">square</span> a))
+</span></span><span style="display:flex;"><span>       (* y b)
+</span></span><span style="display:flex;"><span>       (* a b)))
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">f-helper</span> (+ <span style="color:#ae81ff">1</span> (* x y))
+</span></span><span style="display:flex;"><span>            (- <span style="color:#ae81ff">1</span> y)))
+</span></span></code></pre></div><p><code>f-herlper</code>라는 프로시저를 만드는 대신에 <code>lambda</code>를 사용해서 anonymous procedure로 나타낼 수도 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">f</span> x y)
+</span></span><span style="display:flex;"><span>  ((<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">a</span> b)
+</span></span><span style="display:flex;"><span>    (+ (* x (<span style="color:#a6e22e">square</span> a))
+</span></span><span style="display:flex;"><span>    (* y b)
+</span></span><span style="display:flex;"><span>  (* a b)))
+</span></span><span style="display:flex;"><span>  (+ <span style="color:#ae81ff">1</span> (* x y))
+</span></span><span style="display:flex;"><span>  (- <span style="color:#ae81ff">1</span> y)))
+</span></span></code></pre></div><p>프로시저를 만들 때는 이런 형태가 자주 나올 수 있기 때문에 좀 더 편하게 만들 수 있는 게 바로 <code>let</code>이다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">f</span> x y)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">let </span>((<span style="color:#a6e22e">a</span> (+ <span style="color:#ae81ff">1</span> (* x y)))
+</span></span><span style="display:flex;"><span>        (<span style="color:#a6e22e">b</span> (- <span style="color:#ae81ff">1</span> y)))
+</span></span><span style="display:flex;"><span>    (+ (* x (<span style="color:#a6e22e">square</span> a))
+</span></span><span style="display:flex;"><span>       (* y b)
+</span></span><span style="display:flex;"><span>       (* a b))))
+</span></span></code></pre></div><p>일반적인 형태의 <code>let</code> 표현은 다음과 같다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">let </span>((<span style="color:#a6e22e">&lt;var1&gt;</span> &lt;exp1&gt;)
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">&lt;var2&gt;</span> &lt;exp2&gt;)
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">.</span> <span style="color:#f92672">.</span> <span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">&lt;varn&gt;</span> &lt;expn&gt;))
+</span></span><span style="display:flex;"><span>  &lt;body&gt;)
+</span></span></code></pre></div><p><code>let</code> 문법에서 처음 나오는 건 <code>name-expression</code> pair에 해당하는 리스트다. 이 리스트에 있는 모든 <code>name</code>이 그에 대응하는 <code>expression</code>을 계산한 값으로 정의가 된다. 그리고 <code>let</code>의 <code>body</code>에서는 local variables로 bound된 <code>name</code>들을 가지고 식을 계산하게 된다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>((<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">&lt;var1&gt;</span> <span style="color:#f92672">.</span> <span style="color:#f92672">.</span> <span style="color:#f92672">.</span> &lt;varn&gt;)
+</span></span><span style="display:flex;"><span>    &lt;body&gt;)
+</span></span><span style="display:flex;"><span> &lt;exp1&gt;
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">.</span> <span style="color:#f92672">.</span> <span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span> &lt;expn&gt;)
+</span></span></code></pre></div><p>결국 이는 <code>lambda</code>와 다를 게 없다. 위에서 얘기했듯이 <code>let</code>으로 더 편하게 만든 것이나 마찬가지이다.</p>
+<h2 id="procedures-as-returned-values">Procedures as Returned Values</h2>
+<p>우리는 지금까지 <code>higher-order procedures</code>를 알아보면서 arguments에 프로시저를 받아 쓸 수 있고, 이는 언어의 표현력이 크게 늘어난다는 사실을 알게 됐다. 마찬가지로 프로시저 또한 프로시저의 return 값으로 돌려줄 수 있다면 언어의 표현력을 더욱 끌어올릴 수 있지 않을까?</p>
+<h3 id="newtons-method">Newton&rsquo;s method</h3>
+<p>앞서 살펴봤던 제곱근(<code>square-root</code>)에서 Newton의 방법을 살펴본 바 있다. 정확히는 Newton의 방법에 근거해 만들어진 방법이다.</p>
+<p>뉴턴의 방법은 뭘까?</p>
+<ol>
+<li>함수 <code>f(x)</code>의 해를 찾고 싶다. 즉, <code>f(x) = 0</code>이 되는 <code>x</code>의 값을 찾는 게 목표다.</li>
+<li>어떤 초기 추정값 <code>x0</code>를 정한다.</li>
+<li><code>x0</code>에서 접선을 이용해서 더 좋은 추정값 <code>x1</code>을 구한다.</li>
+<li>이 과정을 반복해서 더 정확한 근사값을 찾는다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>x.n+1 = x.n - f(x.n) / f&#39;(x.n)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x.n = 현재 추정 값
+</span></span><span style="display:flex;"><span>f(x.n) = 함수 값
+</span></span><span style="display:flex;"><span>f&#39;(x.n) = 도함수(기울기) 값
+</span></span><span style="display:flex;"><span>x.n+1 = 새로운 추정값
+</span></span></code></pre></div><p>위를 반복했을 때 점점 더 정확한 해를 얻을 수 있다.</p>
+<p>뉴턴의 방법을 프로시저로 나타내려면 먼저 미분<code>f'(x.n)</code>을 표현해야한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">deriv</span> g)
+</span></span><span style="display:flex;"><span>  (<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">x</span>)
+</span></span><span style="display:flex;"><span>    (/ (- (<span style="color:#a6e22e">g</span> (+ x dx)) (<span style="color:#a6e22e">g</span> x)) <span style="color:#75715e">; f(x+dx) - f(x)</span>
+</span></span><span style="display:flex;"><span>      dx)))                   <span style="color:#75715e">; 나누기 dx</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#66d9ef">define </span>dx <span style="color:#ae81ff">0.00001</span>)
+</span></span></code></pre></div><p><code>deriv</code> 프로시저는 <code>g</code>라는 프로시저를 받아서 그 프로시저의 미분을 근사적으로 계산하는 새로운 프로시저 <code>lambda</code>를 반환한다.</p>
+<h3 id="abstractions-and-first-class-procedures">Abstractions and first-class procedures</h3>
+<p>프로그래밍 언어에서는 계산 과정에서 어떤 기능을 어떻게 다루어야 하는지 여러 가지의 제약을 걸어 둔다. 가장 제약이 적은 것을 흔히 <strong>first-class</strong>에 속한다고 한다.</p>
+<p><strong>first-class</strong>가 가지는 특징은 다음과 같다.</p>
+<ul>
+<li>변수의 값이 될 수 있다. 다시 말해, 이름을 부여할 수 있다.</li>
+<li>프로시저의 인자(argument)로도 쓸 수 있다.</li>
+<li>프로시저의 결과(return) 값으로도 만들어질 수 있다.</li>
+<li>데이터 구조 속에 넣을 수 있다.</li>
+</ul>
+<h2 id="정리">정리</h2>
+<ol>
+<li><strong>고차 함수(Higher-Order Procedures)</strong>: 함수를 인자나 결과로 사용.</li>
+</ol>
+<ul>
+<li>예: <code>(define (compose f g) (lambda (x) (f (g x))))</code>.</li>
+</ul>
+<ol start="2">
+<li><strong>일급 객체(First-Class Citizens)</strong>: 함수를 변수에 저장, 전달 가능.</li>
+</ol>
+<ul>
+<li>예: <code>(define sq (lambda (x) (* x x)))</code>.</li>
+</ul>
+<ol start="3">
+<li><strong>람다(Lambda)</strong>: 이름 없는 함수로 즉석에서 정의.</li>
+</ol>
+<ul>
+<li>예: <code>(lambda (x) (+ x 1))</code>.</li>
+</ul>
+<ol start="4">
+<li><strong>추상화 패턴</strong>: 반복되는 계산을 일반화.</li>
+</ol>
+<ul>
+<li>예: <code>(define (sum term a next b) ...)</code>로 합계나 곱셈 통합.</li>
+</ul>
+<ol start="5">
+<li><strong>수치적 응용</strong>: 제곱근(뉴턴 방법), 고정점(fixed point).</li>
+</ol>
+<ul>
+<li>예: <code>(define (sqrt x) (fixed-point (lambda (y) (/ x y)) 1.0))</code>.</li>
+</ul>
+
+            </div><div class="py-6 text-sm text-gray-700">
+                <script
+                  src="https://giscus.app/client.js"
+                  data-repo="[ENTER REPO HERE]"
+                  data-repo-id="[ENTER REPO ID HERE]"
+                  data-category="[ENTER CATEGORY NAME HERE]"
+                  data-category-id="[ENTER CATEGORY ID HERE]"
+                  data-mapping="pathname"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="light"
+                  data-lang="en"
+                  crossorigin="anonymous"
+                  async
+                ></script>
+              </div>
+            
+          </div>
+
+          <footer>
+            <div
+              class="divide-gray-200 text-sm font-medium leading-5 xl:col-start-1 xl:row-start-2 xl:divide-y"
+            >
+              <div class="py-4 xl:py-8">
+                <h2 class="text-xs uppercase tracking-wide text-gray-500">
+                  Tags
+                </h2>
+                <div class="flex flex-wrap">
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 xl:pt-8">
+              <a
+                class="text-indigo-500 hover:text-indigo-600"
+                aria-label="Back to the list"
+                href="/"
+                >← Back to the list</a
+              >
+            </div>
+          </footer>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>
+        <footer><div class="mt-16 flex flex-col items-center">
+  <div class="mb-2 text-sm text-gray-500">
+    <span>(C) 2025.  all rights reserved.</span>
+  </div>
+
+  <div class="mb-8 text-sm text-gray-500">
+    <span class="mr-1">Built with</span>
+    <a
+      class="font-semibold underline"
+      href="https://github.com/discaptive/hugo-discaptive"
+      target="_blank"
+      >hugo-discaptive</a
+    >
+  </div>
+</div>
+</footer>
+      </div>
+    </section>
+  </body>
+</html>
