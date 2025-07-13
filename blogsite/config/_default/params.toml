@@ -32,8 +32,8 @@
 [logo]
   # Image logo or Text logo
   # Recommended to set image as logo. (prefer)
-  img = "/images/logo.svg"
-  img_dark = "/images/logo-footer.svg"
+  img = "/blog/images/logo.svg"
+  img_dark = "/blog/images/logo-footer.svg"
 
   # Max height not greater than 56 (px). default: 56 (px)
   customLogoHeight = "56"

@@ -61,7 +61,7 @@
       {{ T "search.cancel" }}
     </div>
     <div class="hs-search-powered_by flex items-center justify-center">
-      {{ $algolia := printf `<img src="/images/default/algolia-logo.svg" alt="" class="h-4" />` }}
+      {{ $algolia := printf `<img src="/blog/images/default/algolia-logo.svg" alt="" class="h-4" />` }}
       {{ T "search.powered_by" (dict "Name" $algolia) | safeHTML }}
     </div>
   </div>
