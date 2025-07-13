@@ -1,9 +1,10 @@
 [[module.imports]]
   path = "github.com/discaptive/hugo-discaptive"
 
-baseURL = 'https://example.org'  # Your domain name.
+baseURL = 'https://nenjotsu.github.io/blog'  # Your domain name.
 languageCode = 'en-US'
 title = 'nenjo trades blog'  # Title of your website
+# root = '/blog'
 
 [module]
   [module.hugoVersion]
