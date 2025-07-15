@@ -17,6 +17,7 @@
       <div class="xl:divide-y xl:divide-gray-200">
         <header class="pt-6 xl:pb-6">
           <div class="space-y-1 text-center">
+            {{ if isset  .Site.Params.toc false -}}
             <dl class="space-y-10">
               <div>
                 <dt class="sr-only">Published on</dt>
@@ -27,6 +28,7 @@
                 </dd>
               </div>
             </dl>
+            {{ end }}
             <div>
               <h1
                 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
@@ -68,6 +70,7 @@
             class="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0"
           >
             <div class="prose max-w-none pb-8 pt-10">
+              {{ if .Site.Params.toc -}}
               <details open>
                 <summary class="ml-6 pb-2 pt-2 text-xl font-bold">
                   <span>Table of Contents</span>
@@ -92,6 +95,7 @@
                   {{- end }}
                 </nav>
               </details>
+              {{ end }}
 
               {{ .Content }}
             </div>

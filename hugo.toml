@@ -3,7 +3,7 @@
 
 baseURL = 'https://nenjotsu.github.io'  # Your domain name.
 languageCode = 'en-US'
-title = 'nenjo trades blog'  # Title of your website
+title = 'nenjo.trades market analysis'  # Title of your website
 # root = '/blog'
 
 [module]
@@ -14,7 +14,7 @@ title = 'nenjo trades blog'  # Title of your website
 
 [params]
   github = 'https://github.com/nenjotsu'
-  username = 'nenjotsu'
+  username = 'nenjo.trades'
 
   # To enable giscus, the GitHub-discussions-based comment section,
   # input the repository for the discussions below. For more details, see
@@ -35,19 +35,25 @@ title = 'nenjo trades blog'  # Title of your website
 
 # Menu items displayed in the header.
 [[menus.main]]
-  name = 'Blogs'
+  name = 'Home'
   url = '/'
-  weight = 1
+  weight = 10
 [[menus.main]]
   name = 'Tags'
   url = '/tags'
-  weight = 2
+  weight = 20
 [[menus.main]]
   name = 'About'
   url = '/about'
-  weight = 3
+  weight = 30
+[[menus.main]]
+  identified = 'web'
+  name = 'Tech Blogs'
+  url = 'https://nenjotsu.github.io/me/'
+  weight = 40
+
 [[menus.main]]
   name = 'Contact'
-  url = 'mailto:nenjotrade@gmail.com'
-  weight = 4
+  url = 'https://nenjotsu.github.io/site/contact-me/'
+  weight = 50
 

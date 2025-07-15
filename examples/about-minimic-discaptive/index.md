@@ -1,6 +1,6 @@
 ---
 title: "About minimic-discaptive"
-date: "2025-03-20"
+date: "2025-07-15"
 ---
 
 # Minimic Discaptive

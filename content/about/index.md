@@ -1,84 +1,20 @@
 ---
-title: "About Hugo Discaptive Theme"
-summary: "README"
-tags: ["readme", "notes"]
-date: "2025-02-25T02:25:00+09:00"
+title: "About"
+toc: false
+# summary: "README"
+# tags: ["about", "notes"]
+date: "2025-01-01"
 ---
 
-# Hugo Discaptive
+Welcome to **nenjo.trades** — a space where market analysis takes center stage, backed by the precision of software engineering.
 
-A simple light theme that supports full responsive.
+I’m Nenjo, a trader with a strong engineering mindset. My background spans over 13 years in software development, but today, my focus is on reading the markets, understanding price movements, and turning those insights into actionable strategies.
 
-Inspired by [tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog)
+This blog is where I document market observations, share trading setups, and explain the reasoning behind each trade idea. You’ll also find occasional posts on how I use automation to reduce human error and improve consistency, using tools like **Go, Python, PineScript, Expert Advisor,** and **MetaTrader**.
 
-## Overview
+---
 
-In real usage: [discaptive.com](https://discaptive.com)
+I help traders turn their strategies into fully automated bots using Expert Advisors, Python, or Go.
 
-![1](1.png)
-
-![2](2.png)
-
-![3](3.png)
-
-## Installation
-
-Install Hugo and create a new site. See the Hugo documentation for details.
-
-### Git Submodule
-
-Before adding `hugo-discaptive` theme, initialize a Git repository.
-
-    $ git init
-
-Add `hugo-discaptive` as git submodule:
-
-    $ git submodule add https://github.com/discaptive/hugo-discaptive.git themes/hugo-discaptive
-
-### Hugo module
-
-Initialize your site as hugo module:
-
-    $ hugo mod init github.com/USERNAME/SITENAME
-
-Add `hugo-discaptive` module as a dependency of your site:
-
-    $ hugo mod get github.com/discaptive/hugo-discaptive
-
-### Site preview
-
-Copy the content of `exampleSite` at the root of your project:
-
-    cp -r themes/hugo-discaptive/exampleSite/* .
-
-If you installed `hugo-discaptive` as hugo module, set your theme in your config file (hugo.toml):
-
-    [[module.imports]]
-      path = "github.com/discaptive/hugo-discaptive"
-
-Start Hugo:
-
-    hugo serve
-
-### Site preview (another option)
-
-    $ cd themes/hugo-discaptive/exampleSite
-    $ hugo server --theme ../..
-
-## Content structure
-
-```
-content/
-  ├── first-slug/
-  │       ├── index.md
-  │       ├── image1.jpg
-  │       └── image1.png
-  └── second-slug/
-          ├── index.md
-          ├── image1.jpg
-          └── image1.png
-```
-
-## License
-
-MIT Licensed, see [LICENSE](https://github.com/discaptive/hugo-discaptive/blob/main/LICENSE).
+If you’re ready to bring your idea to life, I’d be happy to help.
+📩 Reach out to me at nenjotrade@gmail.com and let’s build it right.
