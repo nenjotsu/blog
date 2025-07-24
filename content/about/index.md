@@ -17,4 +17,12 @@ This blog is where I document market observations, share trading setups, and exp
 I help traders turn their strategies into fully automated bots using Expert Advisors, Python, or Go.
 
 If you’re ready to bring your idea to life, I’d be happy to help.
+
 📩 Reach out to me at nenjotrade@gmail.com and let’s build it right.
+
+<a href="https://nowpayments.io/donation/nenjotrades" target="_blank" rel="noreferrer noopener">
+  <img src="https://nowpayments.io/images/embeds/donation-button-white.svg" alt="Cryptocurrency & Bitcoin donation button by NOWPayments" />
+</a>
+<a href="https://nowpayments.io/donation/nenjotrades" target="_blank" rel="noreferrer noopener">
+  Donate with NOWPayments
+</a>
