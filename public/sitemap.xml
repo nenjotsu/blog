@@ -3,13 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>//localhost:1313/</loc>
-    <lastmod>2025-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/technical-analysis/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/the-ultimate-guide-to-indicator-categories-in-technical-analysis/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/trading-indicators/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/trend-vs-oscillator/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//localhost:1313/tags/volume-analysis/</loc>
+    <lastmod>2025-07-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//localhost:1313/about/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//localhost:1313/categories/</loc>
   </url><url>
-    <loc>//localhost:1313/tags/</loc>
+    <loc>//localhost:1313/tags/technical-analysis-trading-indicators-indicator-types-trend-indicators-volume-indicators-volatility-indicators-momentum-indicators-oscillator-indicators-stochastic-indicators-support-and-resistance/</loc>
   </url>
 </urlset>

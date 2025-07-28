@@ -16,19 +16,23 @@ title = 'nenjo.trades market analysis'  # Title of your website
   github = 'https://github.com/nenjotsu'
   username = 'nenjo.trades'
 
+  [params.author]
+    email = 'nenjotrade@gmail.com'
+    name = 'Nenjo Trades'
+
   # To enable giscus, the GitHub-discussions-based comment section,
   # input the repository for the discussions below. For more details, see
   # https://giscus.app
-  # [params.giscus]
-    # repo = '[ENTER REPO HERE]'
-    # repoId = '[ENTER REPO ID HERE]'
-    # category = '[ENTER CATEGORY NAME HERE]'
-    # categoryId = '[ENTER CATEGORY ID HERE]'
-    # mapping = 'pathname'
-    # reactionsEnabled = '1'
-    # inputPosition = 'bottom'
-    # theme = 'light'
-    # lang = 'en'
+  [params.giscus]
+    repo = 'nenjotsu/blog'
+    repoId = 'blog'
+    category = 'General'
+    categoryId = 'blog'
+    mapping = 'pathname'
+    reactionsEnabled = '1'
+    inputPosition = 'bottom'
+    theme = 'light'
+    lang = 'en'
 
 [pagination]
   pagerSize = 5  # Specify the max number of rows to be returned in list
@@ -56,6 +60,12 @@ title = 'nenjo.trades market analysis'  # Title of your website
   name = 'Contact'
   url = 'https://nenjotsu.github.io/site/contact-me/'
   weight = 50
+
+[outputs]
+  Home = ["html", "rss", "json"]
+
+copyright = '© 2025 nenjotrades'
+
 
 [markup]
   [markup.goldmark]

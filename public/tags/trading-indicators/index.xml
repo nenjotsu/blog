@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title></title>
-    <link>//localhost:1313/</link>
-    <description>Recent content on </description>
+    <title>Trading Indicators on </title>
+    <link>//localhost:1313/tags/trading-indicators/</link>
+    <description>Recent content in Trading Indicators on </description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>nenjotrade@gmail.com (Nenjo Trades)</managingEditor>
     <webMaster>nenjotrade@gmail.com (Nenjo Trades)</webMaster>
     <lastBuildDate>Mon, 28 Jul 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/trading-indicators/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Ultimate Guide to Indicator Categories in Technical Analysis</title>
       <link>//localhost:1313/the-ultimate-guide-to-indicator-categories-in-technical-analysis/</link>
       <pubDate>Mon, 28 Jul 2025 00:00:00 +0000</pubDate><author>nenjotrade@gmail.com (Nenjo Trades)</author>
       <guid>//localhost:1313/the-ultimate-guide-to-indicator-categories-in-technical-analysis/</guid>
       <description>&lt;p&gt;Whether you&amp;rsquo;re a seasoned trader or just diving into the world of technical analysis, you’ve probably encountered dozens of indicators. But not all indicators serve the same purpose. Understanding which category an indicator belongs to helps you use it more effectively—and avoid stacking five tools that all tell you the same thing.&lt;/p&gt;&#xA;&lt;p&gt;In this guide, we’ll break down the main categories of indicators, explain what each does, and provide examples so you can apply them smartly in your trading strategies.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>About</title>
-      <link>//localhost:1313/about/</link>
-      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate><author>nenjotrade@gmail.com (Nenjo Trades)</author>
-      <guid>//localhost:1313/about/</guid>
-      <description>&lt;p&gt;Welcome to &lt;strong&gt;nenjo.trades&lt;/strong&gt; — a space where market analysis takes center stage, backed by the precision of software engineering.&lt;/p&gt;&#xA;&lt;p&gt;I’m Nenjo, a trader with a strong engineering mindset. My background spans over 13 years in software development, but today, my focus is on reading the markets, understanding price movements, and turning those insights into actionable strategies.&lt;/p&gt;&#xA;&lt;p&gt;This blog is where I document market observations, share trading setups, and explain the reasoning behind each trade idea. You’ll also find occasional posts on how I use automation to reduce human error and improve consistency, using tools like &lt;strong&gt;Go, Python, PineScript, Expert Advisor,&lt;/strong&gt; and &lt;strong&gt;MetaTrader&lt;/strong&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
