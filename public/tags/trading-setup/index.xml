@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Trading Setup on </title>
+    <link>//localhost:1313/tags/trading-setup/</link>
+    <description>Recent content in Trading Setup on </description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>nenjotrade@gmail.com (Nenjo Trades)</managingEditor>
+    <webMaster>nenjotrade@gmail.com (Nenjo Trades)</webMaster>
+    <lastBuildDate>Sat, 12 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/trading-setup/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Less Is More: How I Learned to Simplify My Trading</title>
+      <link>//localhost:1313/less-is-more-simplify-my-trading/</link>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 +0000</pubDate><author>nenjotrade@gmail.com (Nenjo Trades)</author>
+      <guid>//localhost:1313/less-is-more-simplify-my-trading/</guid>
+      <description>&lt;h1 id=&#34;less-is-more-how-i-learned-to-simplify-my-trading&#34;&gt;Less Is More: How I Learned to Simplify My Trading&lt;/h1&gt;&#xA;&lt;h2 id=&#34;setup-winning-trades-without-understanding-why&#34;&gt;Setup: Winning Trades Without Understanding Why&lt;/h2&gt;&#xA;&lt;p&gt;I have been trading for a couple of years now, and like many traders, I started with support and resistance. I drew horizontal lines, watched how price reacted around them, and looked for opportunities to buy near support or sell near resistance.&lt;/p&gt;&#xA;&lt;p&gt;Eventually, I discovered more tools: MACD, RSI, and divergence. Each concept gave me another way to interpret the chart. Sometimes, those signals led to winning trades.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
