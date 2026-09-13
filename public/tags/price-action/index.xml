@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Price Action on </title>
+    <link>//localhost:1313/tags/price-action/</link>
+    <description>Recent content in Price Action on </description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <managingEditor>nenjotrade@gmail.com (Nenjo Trades)</managingEditor>
+    <webMaster>nenjotrade@gmail.com (Nenjo Trades)</webMaster>
+    <lastBuildDate>Sun, 13 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/price-action/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I Use Indicators as Confluence - My Less Is More Approach</title>
+      <link>//localhost:1313/how-i-use-indicators-as-confluence/</link>
+      <pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate><author>nenjotrade@gmail.com (Nenjo Trades)</author>
+      <guid>//localhost:1313/how-i-use-indicators-as-confluence/</guid>
+      <description>&lt;h2 id=&#34;the-setup-volume--price-action&#34;&gt;The Setup: Volume + Price Action&lt;/h2&gt;&#xA;&lt;p&gt;I mentioned before that “less is more” means simplifying my trading setup. Part of that process is decreasing the number of indicators I use and understanding the purpose of each one.&lt;/p&gt;&#xA;&lt;p&gt;My strategy revolves around a simple combination:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Strategy = Volume + Price Action&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Price action helps me understand what the market is doing: breaking a level, rejecting a zone, forming a pattern, or continuing a trend. Volume helps me assess the activity supporting that movement.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
